@@ -277,6 +277,31 @@ export const PRODUCTS: Product[] = [
     badge: "Con baúl",
   },
   {
+    slug: "cama-king-imperial",
+    name: "Cama King Imperial",
+    category: "camas",
+    price: 1290000,
+    image: "/images/cama-king-imperial.jpg",
+    fit: "cover",
+    gallery: [
+      { src: "/images/cama-king-imperial-2.jpg" },
+      { src: "/images/cama-king-imperial-3.jpg" },
+    ],
+    short:
+      "Cama King de terciopelo con respaldo y pie ranurados de gran altura.",
+    description:
+      "Presencia de suite. La Cama King Imperial impone con su respaldo y su pie tapizados en terciopelo gris, con costuras verticales (ranurado) de gran altura. Confort y elegancia para el dormitorio principal.",
+    features: [
+      "Medida King, ideal para descanso amplio",
+      "Respaldo y pie ranurados de gran altura",
+      "Tapizado en terciopelo gris",
+      "Estructura reforzada",
+    ],
+    dimensions: "Para colchón King (180 × 200 cm)",
+    colors: ["Gris terciopelo"],
+    badge: "King",
+  },
+  {
     slug: "juego-comedor-monaco",
     name: "Juego de Comedor Mónaco",
     category: "mesas",

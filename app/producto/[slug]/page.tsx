@@ -66,7 +66,9 @@ export default async function ProductPage({
             alt={product.name}
             priority
             sizes="(min-width:1024px) 50vw, 100vw"
-            imgClassName="object-contain p-10"
+            imgClassName={
+              product.fit === "cover" ? "object-cover" : "object-contain p-10"
+            }
           />
           {product.badge && (
             <span className="absolute left-5 top-5 rounded-full bg-ink/90 px-3 py-1 text-[0.62rem] font-medium uppercase tracking-[0.16em] text-cream">

@@ -19,7 +19,9 @@ export function ProductCard({
             src={product.image}
             alt={product.name}
             priority={priority}
-            imgClassName="object-contain p-6 transition-transform duration-500 group-hover:scale-105"
+            imgClassName={`${
+              product.fit === "cover" ? "object-cover" : "object-contain p-6"
+            } transition-transform duration-500 group-hover:scale-105`}
           />
           {product.badge && (
             <span className="absolute left-3 top-3 rounded-full bg-ink/90 px-3 py-1 text-[0.6rem] font-medium uppercase tracking-[0.16em] text-cream">

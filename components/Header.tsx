@@ -14,6 +14,7 @@ const NAV = [
   { href: "/catalogo?cat=mesas", label: "Mesas", base: "/catalogo" },
   { href: "/catalogo?cat=deco", label: "Deco", base: "/catalogo" },
   { href: "/catalogo?cat=camas", label: "Camas", base: "/catalogo" },
+  { href: "/catalogo?cat=racks", label: "Racks", base: "/catalogo" },
   { href: "/contacto", label: "Contacto", base: "/contacto" },
 ];
 
@@ -63,7 +64,7 @@ export function Header() {
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-5 py-3 sm:px-8">
           <Logo tone={transparent ? "light" : "dark"} />
 
-          <nav className="hidden items-center gap-7 lg:flex">
+          <nav className="hidden items-center gap-6 lg:flex">
             {NAV.map((item) => {
               const active = isActive(item.base);
               return (

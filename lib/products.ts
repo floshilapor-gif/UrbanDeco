@@ -1,4 +1,4 @@
-export type CategorySlug = "sillones" | "mesas" | "deco" | "camas";
+export type CategorySlug = "sillones" | "mesas" | "deco" | "camas" | "racks";
 
 export interface Category {
   slug: CategorySlug;
@@ -19,6 +19,8 @@ export interface Product {
   dimensions?: string;
   colors?: string[];
   badge?: string;
+  /** How the image fills its tile: "contain" (default, studio cut-outs) or "cover" (lifestyle photos). */
+  fit?: "cover" | "contain";
   featured?: boolean;
 }
 
@@ -27,6 +29,7 @@ export const CATEGORIES: Category[] = [
   { slug: "mesas", label: "Mesas", tagline: "Centro, comedor y auxiliares" },
   { slug: "deco", label: "Deco", tagline: "Iluminación, textiles y accesorios" },
   { slug: "camas", label: "Camas", tagline: "Descanso con estilo urbano" },
+  { slug: "racks", label: "Racks TV", tagline: "Racks y paneles para tu televisor" },
 ];
 
 export const PRODUCTS: Product[] = [
@@ -179,7 +182,6 @@ export const PRODUCTS: Product[] = [
     features: ["Luz cálida regulable", "Difusor textil", "Metal mate antihuellas"],
     dimensions: "Altura 165 cm",
     colors: ["Negro mate", "Latón"],
-    featured: true,
   },
   {
     slug: "jarron-arena",
@@ -219,6 +221,123 @@ export const PRODUCTS: Product[] = [
     features: ["Mezcla de lana suave", "Flecos artesanales", "Ligera y cálida"],
     dimensions: "130 × 170 cm",
     colors: ["Bruma", "Arena", "Antracita"],
+  },
+  {
+    slug: "rack-oslo",
+    name: "Rack Panel Oslo",
+    category: "racks",
+    price: 1290,
+    image: "/images/rack-oslo.jpg",
+    fit: "contain",
+    short: "Panel completo con soporte para TV, estantes y mueble bajo.",
+    description:
+      "Un centro de entretenimiento integral. El panel Oslo combina un respaldo para colgar tu TV, estantes flotantes y un mueble bajo con puertas y nichos, en un acabado off-white con detalles de roble. Orden y diseño en una sola pieza.",
+    features: [
+      "Panel con soporte para TV",
+      "Estantes y nichos de exhibición",
+      "Mueble bajo con puertas",
+      "Acabado off-white y roble",
+    ],
+    dimensions: "200 × 193 × 43 cm",
+    colors: ["Off-white y roble"],
+    badge: "Panel completo",
+  },
+  {
+    slug: "rack-bariloche",
+    name: "Rack Bariloche",
+    category: "racks",
+    price: 720,
+    image: "/images/rack-bariloche.jpg",
+    fit: "cover",
+    short: "Rack bajo nórdico en blanco y roble con patas de madera.",
+    description:
+      "Calidez escandinava para tu living. El rack Bariloche apoya tu TV sobre un mueble de líneas limpias en blanco y roble, con puertas, nichos abiertos y patas de madera inclinadas que le dan ese aire retro tan buscado.",
+    features: [
+      "Puertas y nichos abiertos",
+      "Patas de madera inclinadas",
+      "Combinación blanco y roble",
+      "Espacio para consola y decodificador",
+    ],
+    dimensions: "180 × 55 × 40 cm",
+    colors: ["Blanco y roble"],
+  },
+  {
+    slug: "rack-recoleta",
+    name: "Rack Recoleta",
+    category: "racks",
+    price: 1090,
+    image: "/images/rack-recoleta.jpg",
+    fit: "cover",
+    short: "Rack blanco laca con detalle de caña y herrajes dorados.",
+    description:
+      "Elegancia con un guiño clásico. El Recoleta luce un acabado blanco laca con un panel de caña natural y manijas y patas en dorado, ideal para ambientes sofisticados. Incluye panel posterior para enmarcar tu TV.",
+    features: [
+      "Acabado blanco laca",
+      "Detalle de caña natural",
+      "Herrajes y patas dorados",
+      "Panel posterior incluido",
+    ],
+    dimensions: "200 × 180 × 40 cm",
+    colors: ["Blanco y dorado"],
+    badge: "Nuevo",
+    featured: true,
+  },
+  {
+    slug: "rack-palermo",
+    name: "Rack Palermo",
+    category: "racks",
+    price: 1190,
+    image: "/images/rack-palermo.jpg",
+    fit: "cover",
+    short: "Rack gris con patas doradas y nicho central iluminado.",
+    description:
+      "Diseño de autor para tu living. El Palermo combina un cuerpo gris mate con esbeltas patas doradas y un nicho central arqueado con luz LED cálida que realza tus objetos. Puro estilo contemporáneo.",
+    features: [
+      "Nicho arqueado con luz LED",
+      "Patas metálicas doradas",
+      "Amplio almacenaje con puertas",
+      "Acabado gris mate",
+    ],
+    dimensions: "200 × 50 × 40 cm",
+    colors: ["Gris y dorado"],
+  },
+  {
+    slug: "rack-tribeca",
+    name: "Rack Tribeca",
+    category: "racks",
+    price: 850,
+    image: "/images/rack-tribeca.jpg",
+    fit: "cover",
+    short: "Rack grafito con frentes ranurados, interior nogal y ruedas.",
+    description:
+      "Carácter industrial y mucha practicidad. El Tribeca presenta frentes ranurados en grafito con un cálido interior en nogal y ruedas ocultas para moverlo a tu gusto. Estantes abiertos para tu equipo de sonido y consolas.",
+    features: [
+      "Frentes ranurados grafito",
+      "Interior en tono nogal",
+      "Ruedas para fácil movimiento",
+      "Estantes abiertos para equipos",
+    ],
+    dimensions: "180 × 50 × 40 cm",
+    colors: ["Grafito y nogal"],
+  },
+  {
+    slug: "rack-madero",
+    name: "Rack Madero",
+    category: "racks",
+    price: 980,
+    image: "/images/rack-madero.jpg",
+    fit: "cover",
+    short: "Rack flotante de roble ranurado con panel y estantes.",
+    description:
+      "Aire liviano y natural. El Madero es un conjunto suspendido en roble con frentes ranurados, panel posterior para la TV y una columna de estantes para libros y objetos. Al no apoyar en el piso despeja el ambiente y facilita la limpieza.",
+    features: [
+      "Diseño flotante (suspendido)",
+      "Frentes ranurados de roble",
+      "Panel posterior para TV",
+      "Columna de estantes lateral",
+    ],
+    dimensions: "200 × 180 × 38 cm",
+    colors: ["Roble natural"],
   },
 ];
 

@@ -218,6 +218,31 @@ export const PRODUCTS: Product[] = [
     ],
   },
   {
+    slug: "silla-capitone",
+    name: "Silla Capitoné",
+    category: "mesas",
+    price: 120000,
+    image: "/images/silla-capitone-azul.jpg",
+    fit: "cover",
+    short:
+      "Silla de comedor capitoné de respaldo alto y patas de madera. Elegí el color.",
+    description:
+      "La silla que combina con todo. Respaldo alto y asiento capitoné de gran confort, tapizado suave y patas de madera maciza con un detalle de manija en el respaldo. Elegí el color que mejor acompañe tu mesa.",
+    features: [
+      "Asiento y respaldo capitoné",
+      "Patas de madera maciza",
+      "Respaldo alto con manija",
+      "Tapizado de fácil limpieza",
+    ],
+    dimensions: "45 × 55 × 98 cm",
+    badge: "3 colores",
+    variants: [
+      { label: "Azul", image: "/images/silla-capitone-azul.jpg", swatch: "#2f4a6b" },
+      { label: "Lino", image: "/images/silla-capitone-lino.jpg", swatch: "#cfc2a8" },
+      { label: "Negro", image: "/images/silla-capitone-negro.jpg", swatch: "#1c1c1c" },
+    ],
+  },
+  {
     slug: "mesa-centro-oslo",
     name: "Mesa de Centro Oslo",
     category: "mesas",

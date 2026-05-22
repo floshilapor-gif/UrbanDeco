@@ -18,8 +18,9 @@ export function ProductView({
   const [selected, setSelected] = useState(0);
   const current = variants[selected];
   const image = current?.image ?? product.image;
+  const fit = current?.fit ?? product.fit;
   const imgClassName =
-    product.fit === "cover" ? "object-cover" : "object-contain p-10";
+    fit === "cover" ? "object-cover" : "object-contain p-10";
 
   return (
     <div className="mt-6 grid gap-10 lg:grid-cols-2 lg:gap-14">

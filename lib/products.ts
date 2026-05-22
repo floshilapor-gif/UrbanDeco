@@ -17,6 +17,8 @@ export interface ProductVariant {
   image: string;
   /** Hex colour used for the selector swatch. */
   swatch: string;
+  /** Optional per-variant image fit (falls back to the product's fit). */
+  fit?: "cover" | "contain";
 }
 
 export interface Product {
@@ -240,6 +242,59 @@ export const PRODUCTS: Product[] = [
       { label: "Azul", image: "/images/silla-capitone-azul.jpg", swatch: "#2f4a6b" },
       { label: "Lino", image: "/images/silla-capitone-lino.jpg", swatch: "#cfc2a8" },
       { label: "Negro", image: "/images/silla-capitone-negro.jpg", swatch: "#1c1c1c" },
+    ],
+  },
+  {
+    slug: "silla-bristol",
+    name: "Silla Bristol",
+    category: "mesas",
+    price: 180000,
+    image: "/images/silla-bristol-lino.jpg",
+    fit: "contain",
+    short:
+      "Silla de comedor con apoyabrazos y respaldo envolvente. Elegí el color.",
+    description:
+      "Confort de sillón en tu mesa. La Bristol envuelve con su respaldo curvo y sus apoyabrazos, suma un almohadón lumbar y se apoya sobre prolijas patas de madera. Elegí el color que mejor combine con tu comedor.",
+    features: [
+      "Respaldo envolvente con apoyabrazos",
+      "Almohadón lumbar incluido",
+      "Patas de madera",
+      "Tapizado de gran confort",
+    ],
+    dimensions: "60 × 58 × 82 cm",
+    badge: "2 colores",
+    variants: [
+      { label: "Lino", image: "/images/silla-bristol-lino.jpg", swatch: "#cfc2a8" },
+      { label: "Gris", image: "/images/silla-bristol-gris.jpg", swatch: "#8f8f8f" },
+    ],
+  },
+  {
+    slug: "silla-vega",
+    name: "Silla Vega",
+    category: "mesas",
+    price: 180000,
+    image: "/images/silla-vega-lino.jpg",
+    fit: "contain",
+    short:
+      "Silla de comedor de respaldo alto con cabezal y patas de roble. Elegí el color.",
+    description:
+      "Elegancia y soporte para largas sobremesas. La Vega tiene un respaldo alto con cabezal almohadonado para mayor comodidad y esbeltas patas de roble. Elegí el color.",
+    features: [
+      "Respaldo alto con cabezal",
+      "Patas de roble macizo",
+      "Asiento mullido",
+      "Diseño contemporáneo",
+    ],
+    dimensions: "50 × 58 × 92 cm",
+    badge: "2 colores",
+    variants: [
+      { label: "Lino", image: "/images/silla-vega-lino.jpg", swatch: "#cfc2a8" },
+      {
+        label: "Gris",
+        image: "/images/silla-vega-gris.jpg",
+        swatch: "#7a7a7a",
+        fit: "cover",
+      },
     ],
   },
   {

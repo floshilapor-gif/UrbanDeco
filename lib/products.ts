@@ -172,6 +172,31 @@ export const PRODUCTS: Product[] = [
     ],
   },
   {
+    slug: "juego-comedor-toscana",
+    name: "Juego de Comedor Toscana",
+    category: "mesas",
+    price: 620000,
+    image: "/images/juego-comedor-toscana-castano.jpg",
+    fit: "cover",
+    short:
+      "Mesa rectangular con pie de madera y 6 sillas tapizadas. Elegí el color.",
+    description:
+      "Para los que reciben en grande. El juego Toscana suma una mesa rectangular de tapa blanca sobre un pie escultórico de madera y 6 sillas capitoneadas de respaldo alto. Elegí el color de las sillas que mejor combine con tu comedor.",
+    features: [
+      "Mesa rectangular + 6 sillas",
+      "Tapa blanca y pie de madera",
+      "Sillas capitoneadas de respaldo alto",
+      "Disponible en 3 colores",
+    ],
+    dimensions: "Mesa 160 × 90 cm",
+    badge: "6 sillas",
+    variants: [
+      { label: "Castaño", image: "/images/juego-comedor-toscana-castano.jpg", swatch: "#6b4a33" },
+      { label: "Gris", image: "/images/juego-comedor-toscana-gris.jpg", swatch: "#8f8f8f" },
+      { label: "Negro", image: "/images/juego-comedor-toscana-negro.jpg", swatch: "#1c1c1c" },
+    ],
+  },
+  {
     slug: "mesa-centro-oslo",
     name: "Mesa de Centro Oslo",
     category: "mesas",

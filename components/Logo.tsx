@@ -4,10 +4,14 @@ import Link from "next/link";
 export function Logo({
   size = 50,
   withWordmark = true,
+  tone = "dark",
 }: {
   size?: number;
   withWordmark?: boolean;
+  tone?: "dark" | "light";
 }) {
+  const primaryColor = tone === "light" ? "text-cream" : "text-ink";
+  const subColor = tone === "light" ? "text-cream/70" : "text-taupe";
   return (
     <Link
       href="/"
@@ -29,10 +33,10 @@ export function Logo({
       </span>
       {withWordmark && (
         <span className="hidden flex-col leading-none sm:flex">
-          <span className="font-display text-lg tracking-[0.2em] text-ink">
+          <span className={`font-display text-lg tracking-[0.2em] ${primaryColor}`}>
             URBAN DECO
           </span>
-          <span className="mt-1 text-[0.6rem] uppercase tracking-[0.3em] text-taupe">
+          <span className={`mt-1 text-[0.6rem] uppercase tracking-[0.3em] ${subColor}`}>
             Muebles &amp; Decoración
           </span>
         </span>

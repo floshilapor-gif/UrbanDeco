@@ -32,7 +32,7 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative isolate flex min-h-[82vh] flex-col items-center justify-center overflow-hidden px-5 py-24 text-center sm:px-8">
+      <section className="relative isolate -mt-[74px] flex min-h-[86vh] flex-col items-center justify-center overflow-hidden px-5 pb-24 pt-28 text-center sm:px-8">
         <Image
           src="/images/hero-salon.jpg"
           alt="Salón decorado con sofá Chesterfield, butacas y lámpara de pie"

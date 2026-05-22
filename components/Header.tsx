@@ -21,35 +21,76 @@ export function Header() {
   const pathname = usePathname();
   const { count, openCart, hydrated } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  const isHome = pathname === "/";
 
   useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    if (!isHome) {
+      setScrolled(false);
+      return;
+    }
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [isHome]);
+
+  // Transparent overlay only at the top of the homepage (and not while the
+  // mobile menu is open, so the menu stays readable).
+  const transparent = isHome && !scrolled && !menuOpen;
+
   const isActive = (base: string) =>
     base === "/" ? pathname === "/" : pathname === base;
 
+  const iconButton = `relative grid size-11 place-items-center rounded-full transition ${
+    transparent ? "text-cream hover:bg-white/10" : "text-ink hover:bg-sand"
+  }`;
+
   return (
     <>
-      <header className="sticky top-0 z-40 border-b border-line/80 bg-cream/85 backdrop-blur-md">
+      <header
+        className={`sticky top-0 z-40 transition-colors duration-300 ${
+          transparent
+            ? "bg-transparent"
+            : "border-b border-line/80 bg-cream/85 backdrop-blur-md"
+        }`}
+      >
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-5 py-3 sm:px-8">
-          <Logo />
+          <Logo tone={transparent ? "light" : "dark"} />
 
           <nav className="hidden items-center gap-7 lg:flex">
-            {NAV.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className={`relative text-xs font-medium uppercase tracking-[0.16em] transition hover:text-ink ${
-                  isActive(item.base) ? "text-ink" : "text-stone"
-                }`}
-              >
-                {item.label}
-                {isActive(item.base) && (
-                  <span className="absolute -bottom-1.5 left-0 h-px w-full bg-taupe" />
-                )}
-              </Link>
-            ))}
+            {NAV.map((item) => {
+              const active = isActive(item.base);
+              return (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className={`relative text-xs font-medium uppercase tracking-[0.16em] transition ${
+                    transparent
+                      ? active
+                        ? "text-cream"
+                        : "text-cream/80 hover:text-cream"
+                      : active
+                        ? "text-ink"
+                        : "text-stone hover:text-ink"
+                  }`}
+                >
+                  {item.label}
+                  {active && (
+                    <span
+                      className={`absolute -bottom-1.5 left-0 h-px w-full ${
+                        transparent ? "bg-cream" : "bg-taupe"
+                      }`}
+                    />
+                  )}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="flex items-center gap-1.5">
@@ -57,7 +98,7 @@ export function Header() {
               type="button"
               onClick={openCart}
               aria-label="Abrir carrito"
-              className="relative grid size-11 place-items-center rounded-full text-ink transition hover:bg-sand"
+              className={iconButton}
             >
               <IconBag className="size-5" />
               {hydrated && count > 0 && (
@@ -71,7 +112,7 @@ export function Header() {
               onClick={() => setMenuOpen((v) => !v)}
               aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
               aria-expanded={menuOpen}
-              className="grid size-11 place-items-center rounded-full text-ink transition hover:bg-sand lg:hidden"
+              className={`${iconButton} lg:hidden`}
             >
               {menuOpen ? (
                 <IconClose className="size-5" />

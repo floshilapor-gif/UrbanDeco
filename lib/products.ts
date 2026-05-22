@@ -388,6 +388,27 @@ export const PRODUCTS: Product[] = [
     colors: ["Gris con cojines crema"],
     badge: "Modular",
   },
+  {
+    slug: "sillon-hamaca-doble",
+    name: "Sillón Hamaca Doble",
+    category: "jardin",
+    price: 450000,
+    image: "/images/sillon-hamaca-doble.jpg",
+    fit: "contain",
+    short: "Sillón colgante doble de ratán sintético con pie de acero y cojines.",
+    description:
+      "Dos lugares para mecerte y desconectar. Este sillón hamaca colgante doble combina un tejido de ratán sintético resistente a la intemperie con un robusto pie de acero y mullidos cojines grises. Ideal para tu galería, balcón o jardín.",
+    features: [
+      "Capacidad para dos personas",
+      "Ratán sintético apto para exterior",
+      "Pie de acero reforzado",
+      "Incluye cojines y almohadones",
+      "Resistente al sol y la lluvia",
+    ],
+    dimensions: "Asiento doble · pie de acero incluido",
+    colors: ["Marrón con cojines gris"],
+    badge: "Doble",
+  },
 ];
 
 export function getAllProducts(): Product[] {

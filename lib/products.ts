@@ -170,6 +170,27 @@ export const PRODUCTS: Product[] = [
     colors: ["Arena", "Lino natural"],
   },
   {
+    slug: "cama-nube",
+    name: "Cama Nube",
+    category: "camas",
+    price: 920000,
+    image: "/images/cama-nube.jpg",
+    fit: "contain",
+    short:
+      "Cama de 2 plazas tapizada en bouclé gris, base baja y patas redondeadas.",
+    description:
+      "Suavidad para tu descanso. La Cama Nube viste tu dormitorio con un mullido tapizado bouclé gris, un respaldo con almohadones y una base baja sobre patas redondeadas. Pura calidez contemporánea.",
+    features: [
+      "Tapizado bouclé gris",
+      "Respaldo acolchado con almohadones",
+      "Base baja con patas redondeadas",
+      "Para colchón de 2 plazas",
+    ],
+    dimensions: "Para colchón de 2 plazas (140 × 190 cm)",
+    colors: ["Gris bouclé"],
+    badge: "2 plazas",
+  },
+  {
     slug: "juego-comedor-monaco",
     name: "Juego de Comedor Mónaco",
     category: "mesas",

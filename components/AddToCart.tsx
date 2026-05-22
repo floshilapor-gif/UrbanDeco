@@ -8,9 +8,11 @@ import type { Product } from "@/lib/products";
 export function AddToCartButton({
   product,
   variant = "compact",
+  selectedVariant = null,
 }: {
   product: Product;
   variant?: "compact" | "full";
+  selectedVariant?: { label: string; image: string } | null;
 }) {
   const { add } = useCart();
   const [qty, setQty] = useState(1);
@@ -19,10 +21,16 @@ export function AddToCartButton({
   function handleAdd() {
     add(
       {
+        id: selectedVariant
+          ? `${product.slug}::${selectedVariant.label}`
+          : product.slug,
         slug: product.slug,
-        name: product.name,
+        name: selectedVariant
+          ? `${product.name} — ${selectedVariant.label}`
+          : product.name,
         price: product.price,
-        image: product.image,
+        image: selectedVariant ? selectedVariant.image : product.image,
+        variant: selectedVariant ? selectedVariant.label : undefined,
       },
       variant === "full" ? qty : 1,
     );

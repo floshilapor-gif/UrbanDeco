@@ -79,7 +79,7 @@ export function CartDrawer() {
             <div className="hide-scrollbar flex-1 overflow-y-auto px-5 py-4">
               <ul className="flex flex-col gap-5">
                 {lines.map((l) => (
-                  <li key={l.slug} className="flex gap-4">
+                  <li key={l.id} className="flex gap-4">
                     <Link
                       href={`/producto/${l.slug}`}
                       onClick={closeCart}
@@ -103,7 +103,7 @@ export function CartDrawer() {
                         </Link>
                         <button
                           type="button"
-                          onClick={() => remove(l.slug)}
+                          onClick={() => remove(l.id)}
                           aria-label={`Quitar ${l.name}`}
                           className="text-mist transition hover:text-ink"
                         >
@@ -117,7 +117,7 @@ export function CartDrawer() {
                         <div className="inline-flex items-center rounded-full border border-line">
                           <button
                             type="button"
-                            onClick={() => setQty(l.slug, l.qty - 1)}
+                            onClick={() => setQty(l.id, l.qty - 1)}
                             aria-label="Restar unidad"
                             className="grid size-8 place-items-center text-ink transition hover:text-stone"
                           >
@@ -128,7 +128,7 @@ export function CartDrawer() {
                           </span>
                           <button
                             type="button"
-                            onClick={() => setQty(l.slug, l.qty + 1)}
+                            onClick={() => setQty(l.id, l.qty + 1)}
                             aria-label="Sumar unidad"
                             className="grid size-8 place-items-center text-ink transition hover:text-stone"
                           >

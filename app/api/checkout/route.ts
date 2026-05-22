@@ -6,6 +6,7 @@ export const runtime = "nodejs";
 interface IncomingItem {
   slug: string;
   qty: number;
+  variant?: string;
 }
 
 function makeOrderId() {
@@ -39,8 +40,10 @@ export async function POST(req: Request) {
     const product = getProductBySlug(item?.slug);
     if (!product) continue;
     const qty = Math.max(1, Math.min(99, Math.floor(Number(item.qty) || 1)));
+    const variant =
+      typeof item.variant === "string" ? item.variant : undefined;
     lineItems.push({
-      name: product.name,
+      name: variant ? `${product.name} — ${variant}` : product.name,
       price: product.price,
       image: product.image,
       qty,

@@ -50,7 +50,11 @@ export default function CheckoutPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          items: lines.map((l) => ({ slug: l.slug, qty: l.qty })),
+          items: lines.map((l) => ({
+            slug: l.slug,
+            qty: l.qty,
+            variant: l.variant,
+          })),
           customer: form,
         }),
       });
@@ -166,7 +170,7 @@ export default function CheckoutPage() {
             <h2 className="font-display text-xl">Resumen del pedido</h2>
             <ul className="mt-5 flex flex-col gap-4">
               {lines.map((l) => (
-                <li key={l.slug} className="flex items-center gap-3">
+                <li key={l.id} className="flex items-center gap-3">
                   <span className="relative size-14 shrink-0 overflow-hidden rounded-lg bg-white ring-1 ring-line">
                     <ProductImage src={l.image} alt={l.name} sizes="56px" imgClassName="object-contain p-1.5" />
                     <span className="absolute -right-1.5 -top-1.5 grid size-5 place-items-center rounded-full bg-ink text-[0.62rem] font-semibold text-cream">

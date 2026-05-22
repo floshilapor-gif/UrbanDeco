@@ -12,6 +12,13 @@ export interface Category {
   tagline: string;
 }
 
+export interface ProductVariant {
+  label: string;
+  image: string;
+  /** Hex colour used for the selector swatch. */
+  swatch: string;
+}
+
 export interface Product {
   slug: string;
   name: string;
@@ -27,6 +34,8 @@ export interface Product {
   badge?: string;
   /** How the image fills its tile: "contain" (default, studio cut-outs) or "cover" (lifestyle photos). */
   fit?: "cover" | "contain";
+  /** Selectable colour/finish variants, each with its own photo. */
+  variants?: ProductVariant[];
   featured?: boolean;
 }
 
@@ -136,6 +145,31 @@ export const PRODUCTS: Product[] = [
     ],
     dimensions: "160 × 200 cm (interior)",
     colors: ["Arena", "Lino natural"],
+  },
+  {
+    slug: "juego-comedor-monaco",
+    name: "Juego de Comedor Mónaco",
+    category: "mesas",
+    price: 480000,
+    image: "/images/juego-comedor-azul.jpg",
+    fit: "cover",
+    short:
+      "Mesa redonda con pie de madera y 4 sillas tapizadas. Elegí el color.",
+    description:
+      "Reuniones con estilo. El juego Mónaco combina una mesa redonda de tapa blanca sobre un pie escultórico de madera con 4 sillas capitoneadas de gran confort. Elegí el color de las sillas que mejor combine con tu ambiente.",
+    features: [
+      "Mesa redonda + 4 sillas",
+      "Tapa blanca y pie de madera",
+      "Sillas capitoneadas y tapizadas",
+      "Disponible en 3 colores",
+    ],
+    dimensions: "Mesa Ø 120 cm",
+    badge: "3 colores",
+    variants: [
+      { label: "Azul", image: "/images/juego-comedor-azul.jpg", swatch: "#2f4a6b" },
+      { label: "Lino", image: "/images/juego-comedor-lino.jpg", swatch: "#cfc2a8" },
+      { label: "Negro", image: "/images/juego-comedor-negro.jpg", swatch: "#1c1c1c" },
+    ],
   },
   {
     slug: "mesa-centro-oslo",

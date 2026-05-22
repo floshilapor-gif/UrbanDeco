@@ -16,7 +16,7 @@ import {
 } from "@/lib/products";
 
 const VALUE_PROPS = [
-  { Icon: IconTruck, title: "Envío en 24-72h", text: "Entrega cuidada en toda la península." },
+  { Icon: IconTruck, title: "Envío a todo el país", text: "Entrega cuidada en todo el país." },
   { Icon: IconShield, title: "Garantía 2 años", text: "Calidad que respalda cada pieza." },
   { Icon: IconSparkle, title: "Pago 100% seguro", text: "Cifrado y protegido en cada compra." },
   { Icon: IconLeaf, title: "Materiales nobles", text: "Tejidos y maderas seleccionados." },

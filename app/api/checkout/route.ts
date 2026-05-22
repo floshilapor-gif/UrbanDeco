@@ -68,7 +68,7 @@ export async function POST(req: Request) {
         line_items: lineItems.map((l) => ({
           quantity: l.qty,
           price_data: {
-            currency: "eur",
+            currency: "ars",
             unit_amount: l.price * 100,
             product_data: {
               name: l.name,
@@ -76,7 +76,7 @@ export async function POST(req: Request) {
             },
           },
         })),
-        shipping_address_collection: { allowed_countries: ["ES", "PT", "FR"] },
+        shipping_address_collection: { allowed_countries: ["AR"] },
         success_url: `${origin}/checkout/confirmacion?order=${orderId}&session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${origin}/checkout`,
         metadata: { orderId },

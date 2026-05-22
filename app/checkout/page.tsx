@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useCart } from "@/components/CartProvider";
 import { ProductImage } from "@/components/ProductImage";
 import { IconShield, IconArrowRight } from "@/components/icons";
-import { formatEUR } from "@/lib/format";
+import { formatPrice } from "@/lib/format";
 
 const FREE_SHIPPING_THRESHOLD = 800;
 const SHIPPING_COST = 39;
@@ -155,7 +155,7 @@ export default function CheckoutPage() {
             </label>
             <label className="block">
               <span className={labelClass}>País</span>
-              <input value="España" disabled className={`mt-2 ${inputClass} opacity-70`} />
+              <input value="Argentina" disabled className={`mt-2 ${inputClass} opacity-70`} />
             </label>
           </div>
         </div>
@@ -175,7 +175,7 @@ export default function CheckoutPage() {
                   </span>
                   <span className="flex-1 text-sm leading-tight">{l.name}</span>
                   <span className="text-sm font-medium">
-                    {formatEUR(l.price * l.qty)}
+                    {formatPrice(l.price * l.qty)}
                   </span>
                 </li>
               ))}
@@ -184,17 +184,17 @@ export default function CheckoutPage() {
             <div className="mt-5 space-y-2 border-t border-line pt-5 text-sm">
               <div className="flex justify-between text-stone">
                 <span>Subtotal</span>
-                <span className="text-ink">{formatEUR(subtotal)}</span>
+                <span className="text-ink">{formatPrice(subtotal)}</span>
               </div>
               <div className="flex justify-between text-stone">
                 <span>Envío</span>
                 <span className="text-ink">
-                  {shipping === 0 ? "Gratis" : formatEUR(shipping)}
+                  {shipping === 0 ? "Gratis" : formatPrice(shipping)}
                 </span>
               </div>
               <div className="flex items-center justify-between border-t border-line pt-3 text-base">
                 <span className="font-medium">Total</span>
-                <span className="font-display text-2xl">{formatEUR(total)}</span>
+                <span className="font-display text-2xl">{formatPrice(total)}</span>
               </div>
             </div>
 
@@ -209,7 +209,7 @@ export default function CheckoutPage() {
               disabled={loading}
               className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-ink px-6 py-4 text-sm font-medium uppercase tracking-[0.16em] text-cream transition hover:bg-charcoal disabled:cursor-not-allowed disabled:opacity-60"
             >
-              {loading ? "Procesando…" : `Pagar ${formatEUR(total)}`}
+              {loading ? "Procesando…" : `Pagar ${formatPrice(total)}`}
             </button>
 
             <p className="mt-3 flex items-center justify-center gap-1.5 text-xs text-mist">

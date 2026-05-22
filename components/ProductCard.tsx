@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ProductImage } from "./ProductImage";
 import { AddToCartButton } from "./AddToCart";
-import { formatEUR } from "@/lib/format";
+import { formatPrice } from "@/lib/format";
 import type { Product } from "@/lib/products";
 
 export function ProductCard({
@@ -34,10 +34,10 @@ export function ProductCard({
       </Link>
       <div className="mt-3 flex items-center justify-between gap-3">
         <span className="text-base font-medium text-ink">
-          {formatEUR(product.price)}
+          {formatPrice(product.price)}
           {product.compareAt && (
             <span className="ml-2 text-sm font-normal text-mist line-through">
-              {formatEUR(product.compareAt)}
+              {formatPrice(product.compareAt)}
             </span>
           )}
         </span>

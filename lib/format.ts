@@ -1,7 +1,7 @@
-export function formatEUR(value: number): string {
-  return new Intl.NumberFormat("es-ES", {
+export function formatPrice(value: number): string {
+  return new Intl.NumberFormat("es-AR", {
     style: "currency",
-    currency: "EUR",
+    currency: "ARS",
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
   }).format(value);

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { useCart } from "./CartProvider";
 import { ProductImage } from "./ProductImage";
-import { formatEUR } from "@/lib/format";
+import { formatPrice } from "@/lib/format";
 import { IconClose, IconMinus, IconPlus, IconTrash, IconBag } from "./icons";
 
 export function CartDrawer() {
@@ -111,7 +111,7 @@ export function CartDrawer() {
                         </button>
                       </div>
                       <span className="mt-0.5 text-sm text-stone">
-                        {formatEUR(l.price)}
+                        {formatPrice(l.price)}
                       </span>
                       <div className="mt-auto flex items-center justify-between pt-2">
                         <div className="inline-flex items-center rounded-full border border-line">
@@ -136,7 +136,7 @@ export function CartDrawer() {
                           </button>
                         </div>
                         <span className="font-medium">
-                          {formatEUR(l.price * l.qty)}
+                          {formatPrice(l.price * l.qty)}
                         </span>
                       </div>
                     </div>
@@ -149,7 +149,7 @@ export function CartDrawer() {
               <div className="flex items-center justify-between">
                 <span className="text-sm text-stone">Subtotal</span>
                 <span className="text-lg font-medium">
-                  {formatEUR(subtotal)}
+                  {formatPrice(subtotal)}
                 </span>
               </div>
               <p className="mt-1 text-xs text-mist">

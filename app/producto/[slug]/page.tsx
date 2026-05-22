@@ -11,7 +11,7 @@ import {
   getProductBySlug,
   getRelatedProducts,
 } from "@/lib/products";
-import { formatEUR } from "@/lib/format";
+import { formatPrice } from "@/lib/format";
 
 export function generateStaticParams() {
   return PRODUCTS.map((p) => ({ slug: p.slug }));
@@ -84,11 +84,11 @@ export default async function ProductPage({
 
           <div className="mt-4 flex items-end gap-3">
             <span className="text-3xl font-medium">
-              {formatEUR(product.price)}
+              {formatPrice(product.price)}
             </span>
             {product.compareAt && (
               <span className="pb-1 text-lg text-mist line-through">
-                {formatEUR(product.compareAt)}
+                {formatPrice(product.compareAt)}
               </span>
             )}
           </div>
@@ -124,7 +124,7 @@ export default async function ProductPage({
             <div className="flex items-center gap-3 text-sm">
               <IconTruck className="size-5 shrink-0 text-taupe" />
               <span className="text-stone">
-                Envío gratuito en pedidos superiores a {formatEUR(800)}.
+                Envío gratuito en pedidos superiores a {formatPrice(800)}.
                 Entrega en 24-72h.
               </span>
             </div>

@@ -1,4 +1,10 @@
-export type CategorySlug = "sillones" | "mesas" | "deco" | "camas" | "racks";
+export type CategorySlug =
+  | "sillones"
+  | "mesas"
+  | "deco"
+  | "camas"
+  | "racks"
+  | "jardin";
 
 export interface Category {
   slug: CategorySlug;
@@ -30,6 +36,7 @@ export const CATEGORIES: Category[] = [
   { slug: "deco", label: "Deco", tagline: "Iluminación, textiles y accesorios" },
   { slug: "camas", label: "Camas", tagline: "Descanso con estilo urbano" },
   { slug: "racks", label: "Racks TV", tagline: "Racks y paneles para tu televisor" },
+  { slug: "jardin", label: "Jardín", tagline: "Sets y muebles para tu exterior" },
 ];
 
 export const PRODUCTS: Product[] = [
@@ -338,6 +345,48 @@ export const PRODUCTS: Product[] = [
     ],
     dimensions: "200 × 180 × 38 cm",
     colors: ["Roble natural"],
+  },
+  {
+    slug: "set-tulum",
+    name: "Set Tulum",
+    category: "jardin",
+    price: 450000,
+    image: "/images/set-tulum.jpg",
+    fit: "contain",
+    short: "Juego de exterior en cuerda náutica y madera maciza, 5 piezas.",
+    description:
+      "Un oasis para tu patio o terraza. El set Tulum combina estructura de madera maciza con tejido de cuerda náutica resistente a la intemperie y mullidos cojines blancos. Incluye sofá de tres plazas, dos sillones, mesa de centro redonda y mesa auxiliar.",
+    features: [
+      "Sofá de 3 plazas + 2 sillones",
+      "Mesa de centro y mesa auxiliar",
+      "Cuerda náutica resistente a la intemperie",
+      "Estructura de madera maciza",
+      "Cojines desenfundables",
+    ],
+    dimensions: "Sofá 200 cm · sillones 80 cm",
+    colors: ["Madera y cuerda natural"],
+    badge: "5 piezas",
+  },
+  {
+    slug: "set-ibiza",
+    name: "Set Ibiza",
+    category: "jardin",
+    price: 450000,
+    image: "/images/set-ibiza.jpg",
+    fit: "cover",
+    short: "Lounge modular de ratán sintético gris con otomanas y mesa.",
+    description:
+      "Relax al aire libre. El set Ibiza es un lounge modular de ratán sintético gris para exterior, con almohadones color crema, otomanas que se reconfiguran y una práctica mesa elevable para tu café o tu copa. Ideal para galería, jardín o borde de pileta.",
+    features: [
+      "Ratán sintético apto exterior",
+      "Otomanas reconfigurables",
+      "Mesa central elevable",
+      "Almohadones mullidos",
+      "Resistente al sol y la humedad",
+    ],
+    dimensions: "Configurable según el espacio",
+    colors: ["Gris con cojines crema"],
+    badge: "Modular",
   },
 ];
 

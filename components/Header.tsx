@@ -15,6 +15,7 @@ const NAV = [
   { href: "/catalogo?cat=deco", label: "Deco", base: "/catalogo" },
   { href: "/catalogo?cat=camas", label: "Camas", base: "/catalogo" },
   { href: "/catalogo?cat=racks", label: "Racks", base: "/catalogo" },
+  { href: "/catalogo?cat=jardin", label: "Jardín", base: "/catalogo" },
   { href: "/contacto", label: "Contacto", base: "/contacto" },
 ];
 
@@ -64,7 +65,7 @@ export function Header() {
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-5 py-3 sm:px-8">
           <Logo tone={transparent ? "light" : "dark"} />
 
-          <nav className="hidden items-center gap-6 lg:flex">
+          <nav className="hidden items-center gap-5 xl:flex">
             {NAV.map((item) => {
               const active = isActive(item.base);
               return (
@@ -113,7 +114,7 @@ export function Header() {
               onClick={() => setMenuOpen((v) => !v)}
               aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
               aria-expanded={menuOpen}
-              className={`${iconButton} lg:hidden`}
+              className={`${iconButton} xl:hidden`}
             >
               {menuOpen ? (
                 <IconClose className="size-5" />
@@ -125,7 +126,7 @@ export function Header() {
         </div>
 
         {menuOpen && (
-          <div className="border-t border-line bg-cream lg:hidden">
+          <div className="border-t border-line bg-cream xl:hidden">
             <nav className="mx-auto flex w-full max-w-7xl flex-col px-5 py-2 sm:px-8">
               {NAV.map((item) => (
                 <Link

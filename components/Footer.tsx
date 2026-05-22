@@ -1,18 +1,19 @@
 import Link from "next/link";
 import Image from "next/image";
 import { CATEGORIES } from "@/lib/products";
-import {
-  IconFacebook,
-  IconInstagram,
-  IconTwitterX,
-  IconYoutube,
-} from "./icons";
+import { IconInstagram, IconWhatsApp } from "./icons";
 
 const SOCIALS = [
-  { label: "Facebook", href: "#", Icon: IconFacebook },
-  { label: "Instagram", href: "#", Icon: IconInstagram },
-  { label: "X", href: "#", Icon: IconTwitterX },
-  { label: "YouTube", href: "#", Icon: IconYoutube },
+  {
+    label: "Instagram",
+    href: "https://instagram.com/urbandeco_",
+    Icon: IconInstagram,
+  },
+  {
+    label: "WhatsApp",
+    href: "https://wa.me/5491162624178",
+    Icon: IconWhatsApp,
+  },
 ];
 
 function FooterCol({
@@ -78,6 +79,8 @@ export function Footer() {
               <a
                 key={label}
                 href={href}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={label}
                 className="grid size-9 place-items-center rounded-full bg-ink text-cream transition hover:bg-charcoal"
               >

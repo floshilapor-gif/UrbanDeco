@@ -9,10 +9,10 @@ export const metadata: Metadata = {
 };
 
 const INFO = [
+  { label: "WhatsApp", value: "+54 9 11 6262-4178" },
+  { label: "Instagram", value: "@urbandeco_" },
   { label: "Email", value: "hola@urbandeco.com" },
-  { label: "Teléfono", value: "+34 600 00 00 00" },
-  { label: "Showroom", value: "Calle del Diseño 12, Madrid" },
-  { label: "Horario", value: "Lun-Sáb · 10:00 - 20:30" },
+  { label: "Horario", value: "Lun a Sáb · 10:00 - 20:00" },
 ];
 
 export default function ContactoPage() {
@@ -43,7 +43,7 @@ export default function ContactoPage() {
           </div>
 
           <a
-            href="https://wa.me/34600000000"
+            href="https://wa.me/5491162624178"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2.5 rounded-full bg-ink px-7 py-4 text-sm font-medium uppercase tracking-[0.16em] text-cream transition hover:bg-charcoal"
@@ -52,15 +52,20 @@ export default function ContactoPage() {
             Escríbenos por WhatsApp
           </a>
 
-          <div className="relative overflow-hidden rounded-3xl bg-sand p-8 ring-1 ring-line">
+          <a
+            href="https://instagram.com/urbandeco_"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative block overflow-hidden rounded-3xl bg-sand p-8 ring-1 ring-line transition hover:ring-clay"
+          >
             <p className="font-display text-2xl leading-snug">
-              Visita nuestro showroom
+              Síguenos en Instagram
             </p>
             <p className="mt-3 text-sm leading-relaxed text-stone">
-              Ven a tocar los tejidos, probar los sofás y dejarte inspirar por
-              nuestros ambientes. Te esperamos en el corazón de la ciudad.
+              Descubre novedades, ambientes y nuestras últimas piezas en
+              @urbandeco_.
             </p>
-          </div>
+          </a>
         </aside>
       </div>
     </div>

@@ -191,6 +191,27 @@ export const PRODUCTS: Product[] = [
     badge: "2 plazas",
   },
   {
+    slug: "cama-victoria",
+    name: "Cama Victoria",
+    category: "camas",
+    price: 980000,
+    image: "/images/cama-rosa.jpg",
+    fit: "contain",
+    short:
+      "Cama de 2 plazas con respaldo envolvente, tapizada en tono rosa nude.",
+    description:
+      "Romántica y envolvente. La Cama Victoria abraza tu descanso con un respaldo curvo de gran altura tapizado en un cálido tono rosa nude, sobre una base baja acolchada. Elegancia suave para tu dormitorio.",
+    features: [
+      "Respaldo envolvente de gran altura",
+      "Tapizado tono rosa nude",
+      "Base baja acolchada",
+      "Para colchón de 2 plazas",
+    ],
+    dimensions: "Para colchón de 2 plazas (140 × 190 cm)",
+    colors: ["Rosa nude"],
+    badge: "2 plazas",
+  },
+  {
     slug: "juego-comedor-monaco",
     name: "Juego de Comedor Mónaco",
     category: "mesas",

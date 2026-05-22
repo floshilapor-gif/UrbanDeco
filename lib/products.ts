@@ -10,6 +10,7 @@ export interface Category {
   slug: CategorySlug;
   label: string;
   tagline: string;
+  image: string;
 }
 
 export interface ProductVariant {
@@ -42,12 +43,42 @@ export interface Product {
 }
 
 export const CATEGORIES: Category[] = [
-  { slug: "sillones", label: "Sillones", tagline: "Sofás y sillones de diseño" },
-  { slug: "mesas", label: "Mesas", tagline: "Centro, comedor y auxiliares" },
-  { slug: "deco", label: "Deco", tagline: "Iluminación, textiles y accesorios" },
-  { slug: "camas", label: "Camas", tagline: "Descanso con estilo urbano" },
-  { slug: "racks", label: "Racks TV", tagline: "Racks y paneles para tu televisor" },
-  { slug: "jardin", label: "Jardín", tagline: "Sets y muebles para tu exterior" },
+  {
+    slug: "sillones",
+    label: "Sillones",
+    tagline: "Sofás y sillones de diseño",
+    image: "/images/sillon-monaco-3.jpg",
+  },
+  {
+    slug: "mesas",
+    label: "Mesas",
+    tagline: "Comedores, sillas y auxiliares",
+    image: "/images/juego-comedor-toscana-castano.jpg",
+  },
+  {
+    slug: "deco",
+    label: "Deco",
+    tagline: "Iluminación, textiles y accesorios",
+    image: "/images/deco-ambiente.jpg",
+  },
+  {
+    slug: "camas",
+    label: "Camas",
+    tagline: "Descanso con estilo urbano",
+    image: "/images/cama-nube.jpg",
+  },
+  {
+    slug: "racks",
+    label: "Racks TV",
+    tagline: "Racks y paneles para tu televisor",
+    image: "/images/rack-palermo.jpg",
+  },
+  {
+    slug: "jardin",
+    label: "Jardín",
+    tagline: "Sets y muebles para tu exterior",
+    image: "/images/set-ibiza.jpg",
+  },
 ];
 
 export const PRODUCTS: Product[] = [

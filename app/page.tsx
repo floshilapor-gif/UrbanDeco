@@ -147,21 +147,28 @@ export default function HomePage() {
         </header>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {CATEGORIES.map((c, i) => (
+          {CATEGORIES.map((c) => (
             <Link
               key={c.slug}
               href={`/catalogo?cat=${c.slug}`}
-              className="group relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-2xl bg-sand p-6 ring-1 ring-line transition hover:ring-clay"
+              className="group relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-2xl ring-1 ring-line transition hover:ring-clay"
             >
-              <span className="absolute right-5 top-5 font-display text-2xl text-clay">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h3 className="font-display text-2xl">{c.label}</h3>
-              <p className="mt-1 text-sm text-stone">{c.tagline}</p>
-              <span className="mt-4 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.16em] text-ink">
-                Descubrir
-                <IconArrowRight className="size-4 transition group-hover:translate-x-1" />
-              </span>
+              <Image
+                src={c.image}
+                alt={c.label}
+                fill
+                sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/45 to-ink/10" />
+              <div className="relative p-6">
+                <h3 className="font-display text-2xl text-cream">{c.label}</h3>
+                <p className="mt-1 text-sm text-cream/85">{c.tagline}</p>
+                <span className="mt-4 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.16em] text-cream">
+                  Descubrir
+                  <IconArrowRight className="size-4 transition group-hover:translate-x-1" />
+                </span>
+              </div>
             </Link>
           ))}
         </div>

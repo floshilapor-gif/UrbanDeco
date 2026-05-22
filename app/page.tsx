@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ProductImage } from "@/components/ProductImage";
 import { ProductCard } from "@/components/ProductCard";
 import {
@@ -8,8 +9,11 @@ import {
   IconSparkle,
   IconLeaf,
 } from "@/components/icons";
-import { CATEGORIES, getFeaturedProducts, getProductBySlug } from "@/lib/products";
-import { formatEUR } from "@/lib/format";
+import {
+  CATEGORIES,
+  getFeaturedProducts,
+  getProductBySlug,
+} from "@/lib/products";
 
 const VALUE_PROPS = [
   { Icon: IconTruck, title: "Envío en 24-72h", text: "Entrega cuidada en toda la península." },
@@ -18,99 +22,74 @@ const VALUE_PROPS = [
   { Icon: IconLeaf, title: "Materiales nobles", text: "Tejidos y maderas seleccionados." },
 ];
 
+const HERO_THUMBS = ["sofa-mykonos", "sofa-madrid", "cama-baul-lino"]
+  .map((slug) => getProductBySlug(slug))
+  .filter((p): p is NonNullable<typeof p> => Boolean(p));
+
 export default function HomePage() {
   const featured = getFeaturedProducts();
-  const heroProduct = getProductBySlug("sofa-mykonos");
 
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-5 py-14 sm:px-8 lg:grid-cols-2 lg:py-20">
-          <div>
-            <p className="eyebrow">Muebles &amp; Decoración</p>
-            <h1 className="mt-5 text-balance font-display text-5xl leading-[1.02] sm:text-6xl lg:text-7xl">
-              Sillones y decoración{" "}
-              <span className="italic text-taupe">premium</span> para tu hogar
-            </h1>
-            <p className="mt-6 max-w-md text-lg leading-relaxed text-stone">
-              Nuevas colecciones urbanas. Descubre el arte de vivir con piezas
-              de diseño que transforman cada espacio.
-            </p>
-            <div className="mt-9 flex flex-wrap items-center gap-3">
-              <Link
-                href="/catalogo"
-                className="inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-medium uppercase tracking-[0.16em] text-cream transition hover:bg-charcoal"
-              >
-                Ver catálogo <IconArrowRight className="size-4" />
-              </Link>
-              <Link
-                href="/nosotros"
-                className="inline-flex items-center gap-2 rounded-full border border-ink/30 px-7 py-3.5 text-sm font-medium uppercase tracking-[0.16em] text-ink transition hover:border-ink hover:bg-ink hover:text-cream"
-              >
-                Sobre nosotros
-              </Link>
-            </div>
-            <dl className="mt-12 flex gap-10">
-              <div>
-                <dt className="font-display text-3xl">+500</dt>
-                <dd className="mt-1 text-xs uppercase tracking-[0.18em] text-stone">
-                  Hogares
-                </dd>
-              </div>
-              <div>
-                <dt className="font-display text-3xl">4,9★</dt>
-                <dd className="mt-1 text-xs uppercase tracking-[0.18em] text-stone">
-                  Valoración
-                </dd>
-              </div>
-              <div>
-                <dt className="font-display text-3xl">24h</dt>
-                <dd className="mt-1 text-xs uppercase tracking-[0.18em] text-stone">
-                  Envío
-                </dd>
-              </div>
-            </dl>
-          </div>
+      <section className="relative isolate flex min-h-[82vh] flex-col items-center justify-center overflow-hidden px-5 py-24 text-center sm:px-8">
+        <Image
+          src="/images/hero-salon.jpg"
+          alt="Salón decorado con sofá Chesterfield, butacas y lámpara de pie"
+          fill
+          priority
+          sizes="100vw"
+          className="-z-20 object-cover object-center"
+        />
+        <div className="absolute inset-0 -z-10 bg-ink/35" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-ink/30 via-ink/30 to-ink/55" />
 
-          <div className="relative">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-white ring-1 ring-line">
-              <ProductImage
-                src={heroProduct?.image ?? null}
-                alt="Sofá Mykonos"
-                priority
-                sizes="(min-width:1024px) 50vw, 100vw"
-                imgClassName="object-contain p-8"
-              />
-            </div>
-            {heroProduct && (
-              <Link
-                href={`/producto/${heroProduct.slug}`}
-                className="absolute bottom-5 left-5 flex items-center gap-3 rounded-2xl bg-cream/95 p-3 pr-5 shadow-lg ring-1 ring-line backdrop-blur transition hover:ring-clay"
-              >
-                <span className="relative size-14 overflow-hidden rounded-xl bg-white">
-                  <ProductImage
-                    src={heroProduct.image}
-                    alt=""
-                    sizes="56px"
-                    imgClassName="object-contain p-1.5"
-                  />
-                </span>
-                <span className="leading-tight">
-                  <span className="block text-[0.62rem] uppercase tracking-[0.18em] text-taupe">
-                    Destacado
-                  </span>
-                  <span className="block font-display text-base">
-                    {heroProduct.name}
-                  </span>
-                  <span className="block text-sm text-stone">
-                    {formatEUR(heroProduct.price)}
-                  </span>
-                </span>
-              </Link>
-            )}
-          </div>
+        <p className="text-xs font-medium uppercase tracking-[0.32em] text-cream/85">
+          Nuevas colecciones urbanas
+        </p>
+        <h1 className="mt-5 max-w-4xl text-balance font-display text-[2.6rem] leading-[1.05] text-cream [text-shadow:0_2px_30px_rgba(20,18,15,0.35)] sm:text-6xl lg:text-7xl">
+          Sillones y decoración premium para tu hogar
+        </h1>
+        <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream/90 sm:text-xl">
+          Descubre el arte de vivir con piezas de diseño que transforman cada
+          espacio.
+        </p>
+
+        <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+          <Link
+            href="/catalogo"
+            className="inline-flex items-center gap-2 rounded-full bg-cream px-8 py-4 text-sm font-medium uppercase tracking-[0.16em] text-ink shadow-lg transition hover:bg-white"
+          >
+            Ver catálogo <IconArrowRight className="size-4" />
+          </Link>
+          <Link
+            href="/nosotros"
+            className="inline-flex items-center gap-2 rounded-full border border-cream/70 px-8 py-4 text-sm font-medium uppercase tracking-[0.16em] text-cream backdrop-blur-sm transition hover:bg-cream hover:text-ink"
+          >
+            Sobre nosotros
+          </Link>
         </div>
+
+        {/* Featured thumbnails */}
+        {HERO_THUMBS.length > 0 && (
+          <div className="mt-14 flex items-center gap-3 rounded-2xl bg-cream/85 p-3 shadow-2xl ring-1 ring-white/40 backdrop-blur-md">
+            {HERO_THUMBS.map((p) => (
+              <Link
+                key={p.slug}
+                href={`/producto/${p.slug}`}
+                aria-label={p.name}
+                className="group relative size-16 overflow-hidden rounded-xl bg-white ring-1 ring-line transition hover:ring-clay sm:size-[4.5rem]"
+              >
+                <ProductImage
+                  src={p.image}
+                  alt={p.name}
+                  sizes="80px"
+                  imgClassName="object-contain p-1.5 transition-transform duration-500 group-hover:scale-110"
+                />
+              </Link>
+            ))}
+          </div>
+        )}
       </section>
 
       {/* Value props */}

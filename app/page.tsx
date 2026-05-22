@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { ProductImage } from "@/components/ProductImage";
 import { ProductCard } from "@/components/ProductCard";
+import { Reveal } from "@/components/Reveal";
+import { StarField } from "@/components/StarField";
 import {
   IconArrowRight,
   IconTruck,
@@ -65,6 +67,7 @@ export default function HomePage() {
         />
         <div className="absolute inset-0 -z-10 bg-ink/35" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-ink/30 via-ink/30 to-ink/55" />
+        <StarField className="-z-10" />
 
         <p className="text-xs font-medium uppercase tracking-[0.32em] text-cream/85">
           Nuevas colecciones urbanas
@@ -117,138 +120,151 @@ export default function HomePage() {
       {/* Value props */}
       <section className="border-y border-line bg-linen">
         <div className="mx-auto grid w-full max-w-7xl gap-8 px-5 py-10 sm:grid-cols-2 sm:px-8 lg:grid-cols-4">
-          {VALUE_PROPS.map(({ Icon, title, text }) => (
-            <div key={title} className="flex items-start gap-3">
+          {VALUE_PROPS.map(({ Icon, title, text }, i) => (
+            <Reveal key={title} delay={i * 80} className="flex items-start gap-3">
               <Icon className="mt-0.5 size-6 shrink-0 text-taupe" />
               <div>
                 <p className="font-medium">{title}</p>
                 <p className="mt-0.5 text-sm text-stone">{text}</p>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
 
       {/* Categories */}
       <section className="mx-auto w-full max-w-7xl px-5 py-16 sm:px-8 lg:py-20">
-        <header className="flex items-end justify-between gap-4">
-          <div>
-            <p className="eyebrow">Explora</p>
-            <h2 className="mt-2 font-display text-3xl sm:text-4xl">
-              Nuestras colecciones
-            </h2>
-          </div>
-          <Link
-            href="/catalogo"
-            className="hidden items-center gap-2 text-sm font-medium uppercase tracking-[0.14em] text-stone transition hover:text-ink sm:inline-flex"
-          >
-            Ver todo <IconArrowRight className="size-4" />
-          </Link>
-        </header>
+        <Reveal>
+          <header className="flex items-end justify-between gap-4">
+            <div>
+              <p className="eyebrow">Explora</p>
+              <h2 className="mt-2 font-display text-3xl sm:text-4xl">
+                Nuestras colecciones
+              </h2>
+            </div>
+            <Link
+              href="/catalogo"
+              className="hidden items-center gap-2 text-sm font-medium uppercase tracking-[0.14em] text-stone transition hover:text-ink sm:inline-flex"
+            >
+              Ver todo <IconArrowRight className="size-4" />
+            </Link>
+          </header>
+        </Reveal>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {CATEGORIES.map((c) => (
-            <Link
-              key={c.slug}
-              href={`/catalogo?cat=${c.slug}`}
-              className="group relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-2xl ring-1 ring-line transition hover:ring-clay"
-            >
-              <Image
-                src={c.image}
-                alt={c.label}
-                fill
-                sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/45 to-ink/10" />
-              <div className="relative p-6">
-                <h3 className="font-display text-2xl text-cream">{c.label}</h3>
-                <p className="mt-1 text-sm text-cream/85">{c.tagline}</p>
-                <span className="mt-4 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.16em] text-cream">
-                  Descubrir
-                  <IconArrowRight className="size-4 transition group-hover:translate-x-1" />
-                </span>
-              </div>
-            </Link>
+          {CATEGORIES.map((c, i) => (
+            <Reveal key={c.slug} delay={(i % 3) * 90}>
+              <Link
+                href={`/catalogo?cat=${c.slug}`}
+                className="group relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-2xl ring-1 ring-line transition duration-300 hover:ring-clay"
+              >
+                <Image
+                  src={c.image}
+                  alt={c.label}
+                  fill
+                  sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/45 to-ink/10" />
+                <div className="relative p-6">
+                  <h3 className="font-display text-2xl text-cream">{c.label}</h3>
+                  <p className="mt-1 text-sm text-cream/85">{c.tagline}</p>
+                  <span className="mt-4 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.16em] text-cream">
+                    Descubrir
+                    <IconArrowRight className="size-4 transition group-hover:translate-x-1" />
+                  </span>
+                </div>
+              </Link>
+            </Reveal>
           ))}
         </div>
       </section>
 
       {/* Featured products */}
       <section className="mx-auto w-full max-w-7xl px-5 pb-4 sm:px-8">
-        <header className="flex items-end justify-between gap-4">
-          <div>
-            <p className="eyebrow">Selección</p>
-            <h2 className="mt-2 font-display text-3xl sm:text-4xl">
-              Piezas destacadas
-            </h2>
-          </div>
-          <Link
-            href="/catalogo"
-            className="hidden items-center gap-2 text-sm font-medium uppercase tracking-[0.14em] text-stone transition hover:text-ink sm:inline-flex"
-          >
-            Ver catálogo <IconArrowRight className="size-4" />
-          </Link>
-        </header>
+        <Reveal>
+          <header className="flex items-end justify-between gap-4">
+            <div>
+              <p className="eyebrow">Selección</p>
+              <h2 className="mt-2 font-display text-3xl sm:text-4xl">
+                Piezas destacadas
+              </h2>
+            </div>
+            <Link
+              href="/catalogo"
+              className="hidden items-center gap-2 text-sm font-medium uppercase tracking-[0.14em] text-stone transition hover:text-ink sm:inline-flex"
+            >
+              Ver catálogo <IconArrowRight className="size-4" />
+            </Link>
+          </header>
+        </Reveal>
 
         <div className="mt-8 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
           {featured.map((p, i) => (
-            <ProductCard key={p.slug} product={p} priority={i < 2} />
+            <Reveal key={p.slug} delay={(i % 4) * 80}>
+              <ProductCard product={p} priority={i < 2} />
+            </Reveal>
           ))}
         </div>
       </section>
 
       {/* Testimonials */}
       <section className="mx-auto w-full max-w-7xl px-5 py-16 sm:px-8 lg:py-20">
-        <header className="text-center">
-          <p className="eyebrow">Reseñas</p>
-          <h2 className="mt-2 font-display text-3xl sm:text-4xl">
-            Lo que dicen nuestros clientes
-          </h2>
-        </header>
+        <Reveal>
+          <header className="text-center">
+            <p className="eyebrow">Reseñas</p>
+            <h2 className="mt-2 font-display text-3xl sm:text-4xl">
+              Lo que dicen nuestros clientes
+            </h2>
+          </header>
+        </Reveal>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {TESTIMONIALS.map((t) => (
-            <figure
-              key={t.name}
-              className="flex flex-col rounded-3xl border border-line bg-linen p-7"
-            >
-              <div className="flex gap-0.5 text-taupe">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <IconStar key={i} className="size-4" />
-                ))}
-              </div>
-              <blockquote className="mt-4 flex-1 leading-relaxed text-ink">
-                “{t.quote}”
-              </blockquote>
-              <figcaption className="mt-5 text-sm">
-                <span className="font-medium text-ink">{t.name}</span>
-                <span className="text-stone"> · {t.location}</span>
-              </figcaption>
-            </figure>
+          {TESTIMONIALS.map((t, i) => (
+            <Reveal key={t.name} delay={i * 100}>
+              <figure className="flex h-full flex-col rounded-3xl border border-line bg-linen p-7">
+                <div className="flex gap-0.5 text-taupe">
+                  {Array.from({ length: 5 }).map((_, j) => (
+                    <IconStar key={j} className="size-4" />
+                  ))}
+                </div>
+                <blockquote className="mt-4 flex-1 leading-relaxed text-ink">
+                  “{t.quote}”
+                </blockquote>
+                <figcaption className="mt-5 text-sm">
+                  <span className="font-medium text-ink">{t.name}</span>
+                  <span className="text-stone"> · {t.location}</span>
+                </figcaption>
+              </figure>
+            </Reveal>
           ))}
         </div>
       </section>
 
       {/* Editorial band */}
-      <section className="mt-20 bg-ink text-cream">
-        <div className="mx-auto grid w-full max-w-7xl gap-8 px-5 py-20 sm:px-8 lg:grid-cols-2 lg:items-center">
-          <h2 className="text-balance font-display text-4xl leading-tight sm:text-5xl">
-            Descubre el arte de vivir
-          </h2>
-          <div>
-            <p className="max-w-md leading-relaxed text-cream/70">
-              En Urban Deco creemos que el hogar es el lienzo de tu vida.
-              Seleccionamos cada pieza por su diseño, sus materiales y su
-              capacidad de hacerte sentir en casa. Bienvenido a tu nuevo
-              espacio.
-            </p>
-            <Link
-              href="/catalogo"
-              className="mt-7 inline-flex items-center gap-2 rounded-full bg-cream px-7 py-3.5 text-sm font-medium uppercase tracking-[0.16em] text-ink transition hover:bg-white"
-            >
-              Explorar la tienda <IconArrowRight className="size-4" />
-            </Link>
-          </div>
+      <section className="relative isolate mt-20 overflow-hidden bg-ink text-cream">
+        <StarField />
+        <div className="relative mx-auto grid w-full max-w-7xl gap-8 px-5 py-20 sm:px-8 lg:grid-cols-2 lg:items-center">
+          <Reveal>
+            <h2 className="text-balance font-display text-4xl leading-tight sm:text-5xl">
+              Descubre el arte de vivir
+            </h2>
+          </Reveal>
+          <Reveal delay={120}>
+            <div>
+              <p className="max-w-md leading-relaxed text-cream/70">
+                En Urban Deco creemos que el hogar es el lienzo de tu vida.
+                Seleccionamos cada pieza por su diseño, sus materiales y su
+                capacidad de hacerte sentir en casa. Bienvenido a tu nuevo
+                espacio.
+              </p>
+              <Link
+                href="/catalogo"
+                className="mt-7 inline-flex items-center gap-2 rounded-full bg-cream px-7 py-3.5 text-sm font-medium uppercase tracking-[0.16em] text-ink transition hover:bg-white"
+              >
+                Explorar la tienda <IconArrowRight className="size-4" />
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
     </>

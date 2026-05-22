@@ -12,7 +12,7 @@ export function ProductCard({
   priority?: boolean;
 }) {
   return (
-    <div className="group flex flex-col">
+    <div className="group flex flex-col transition-transform duration-300 hover:-translate-y-1">
       <Link href={`/producto/${product.slug}`} className="block">
         <div className="relative aspect-square overflow-hidden rounded-2xl bg-white ring-1 ring-line transition duration-300 group-hover:ring-clay">
           <ProductImage

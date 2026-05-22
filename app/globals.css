@@ -58,3 +58,20 @@
   .hide-scrollbar::-webkit-scrollbar { display: none; }
   .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 }
+
+/* Ambient motion (gold motes + slow shooting stars in dark sections) */
+@keyframes ud-twinkle {
+  0%, 100% { opacity: 0.2; transform: translateY(0); }
+  50% { opacity: 0.85; transform: translateY(-8px); }
+}
+
+@keyframes ud-shoot {
+  0% { opacity: 0; transform: translate(0, 0) rotate(20deg); }
+  4% { opacity: 0.9; }
+  18%, 100% { opacity: 0; transform: translate(340px, 124px) rotate(20deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ud-dot { animation: none !important; }
+  .ud-shoot-el { display: none !important; }
+}

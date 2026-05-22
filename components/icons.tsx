@@ -164,3 +164,11 @@ export function IconWhatsApp(props: IconProps) {
     </svg>
   );
 }
+
+export function IconStar(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M12 2.5l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 21.35l-5.8 3.05 1.1-6.45-4.7-4.6 6.5-.95L12 2.5Z" />
+    </svg>
+  );
+}

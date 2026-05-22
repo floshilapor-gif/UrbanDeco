@@ -8,6 +8,7 @@ import {
   IconShield,
   IconSparkle,
   IconLeaf,
+  IconStar,
 } from "@/components/icons";
 import {
   CATEGORIES,
@@ -20,6 +21,27 @@ const VALUE_PROPS = [
   { Icon: IconShield, title: "Garantía 2 años", text: "Calidad que respalda cada pieza." },
   { Icon: IconSparkle, title: "Pago 100% seguro", text: "Cifrado y protegido en cada compra." },
   { Icon: IconLeaf, title: "Materiales nobles", text: "Tejidos y maderas seleccionados." },
+];
+
+const TESTIMONIALS = [
+  {
+    name: "Carolina M.",
+    location: "Palermo, CABA",
+    quote:
+      "El sofá llegó impecable y en el plazo prometido. La atención por WhatsApp fue rapidísima. ¡Mi living quedó de revista!",
+  },
+  {
+    name: "Martín R.",
+    location: "Córdoba",
+    quote:
+      "Compré un rack y un set de jardín. Excelente calidad y las cuotas sin interés me ayudaron un montón.",
+  },
+  {
+    name: "Lucía F.",
+    location: "Rosario",
+    quote:
+      "Muebles preciosos y muy bien embalados. Se nota la calidad de los materiales. Vuelvo a comprar seguro.",
+  },
 ];
 
 const HERO_THUMBS = ["sofa-mykonos", "sofa-madrid", "cama-baul-lino"]
@@ -165,6 +187,37 @@ export default function HomePage() {
         <div className="mt-8 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
           {featured.map((p, i) => (
             <ProductCard key={p.slug} product={p} priority={i < 2} />
+          ))}
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="mx-auto w-full max-w-7xl px-5 py-16 sm:px-8 lg:py-20">
+        <header className="text-center">
+          <p className="eyebrow">Reseñas</p>
+          <h2 className="mt-2 font-display text-3xl sm:text-4xl">
+            Lo que dicen nuestros clientes
+          </h2>
+        </header>
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {TESTIMONIALS.map((t) => (
+            <figure
+              key={t.name}
+              className="flex flex-col rounded-3xl border border-line bg-linen p-7"
+            >
+              <div className="flex gap-0.5 text-taupe">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <IconStar key={i} className="size-4" />
+                ))}
+              </div>
+              <blockquote className="mt-4 flex-1 leading-relaxed text-ink">
+                “{t.quote}”
+              </blockquote>
+              <figcaption className="mt-5 text-sm">
+                <span className="font-medium text-ink">{t.name}</span>
+                <span className="text-stone"> · {t.location}</span>
+              </figcaption>
+            </figure>
           ))}
         </div>
       </section>

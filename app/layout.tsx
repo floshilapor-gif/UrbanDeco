@@ -4,6 +4,7 @@ import "./globals.css";
 import { CartProvider } from "@/components/CartProvider";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,13 +18,28 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("http://localhost:3000"),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  ),
   title: {
     default: "Urban Deco — Muebles & Decoración",
     template: "%s · Urban Deco",
   },
   description:
-    "Sillones y decoración premium para tu hogar. Nuevas colecciones urbanas — descubre el arte de vivir.",
+    "Sillones, racks, camas y decoración premium para tu hogar. Envíos a todo el país y cuotas sin interés.",
+  openGraph: {
+    type: "website",
+    locale: "es_AR",
+    siteName: "Urban Deco",
+    title: "Urban Deco — Muebles & Decoración",
+    description:
+      "Muebles y decoración premium para tu hogar. Envíos a todo el país y cuotas sin interés.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Urban Deco — Muebles & Decoración",
+    description: "Muebles y decoración premium para tu hogar.",
+  },
 };
 
 export default function RootLayout({
@@ -41,6 +57,7 @@ export default function RootLayout({
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
+          <WhatsAppFloat />
         </CartProvider>
       </body>
     </html>

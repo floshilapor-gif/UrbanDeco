@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ProductImage } from "./ProductImage";
 import { AddToCartButton } from "./AddToCart";
-import { formatPrice } from "@/lib/format";
+import { formatPrice, INSTALLMENTS } from "@/lib/format";
 import type { Product } from "@/lib/products";
 
 export function ProductCard({
@@ -34,15 +34,20 @@ export function ProductCard({
           <p className="mt-1 line-clamp-1 text-sm text-stone">{product.short}</p>
         </div>
       </Link>
-      <div className="mt-3 flex items-center justify-between gap-3">
-        <span className="text-base font-medium text-ink">
-          {formatPrice(product.price)}
-          {product.compareAt && (
-            <span className="ml-2 text-sm font-normal text-mist line-through">
-              {formatPrice(product.compareAt)}
-            </span>
-          )}
-        </span>
+      <div className="mt-3 flex items-end justify-between gap-3">
+        <div>
+          <span className="text-base font-medium text-ink">
+            {formatPrice(product.price)}
+            {product.compareAt && (
+              <span className="ml-2 text-sm font-normal text-mist line-through">
+                {formatPrice(product.compareAt)}
+              </span>
+            )}
+          </span>
+          <p className="mt-0.5 text-xs text-taupe">
+            {INSTALLMENTS} cuotas sin interés
+          </p>
+        </div>
         <AddToCartButton product={product} variant="compact" />
       </div>
     </div>

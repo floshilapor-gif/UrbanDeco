@@ -6,3 +6,13 @@ export function formatPrice(value: number): string {
     maximumFractionDigits: 0,
   }).format(value);
 }
+
+/** Default number of interest-free installments offered. */
+export const INSTALLMENTS = 3;
+
+export function formatInstallment(
+  value: number,
+  count: number = INSTALLMENTS,
+): string {
+  return formatPrice(Math.round(value / count));
+}

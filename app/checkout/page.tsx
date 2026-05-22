@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useCart } from "@/components/CartProvider";
 import { ProductImage } from "@/components/ProductImage";
 import { IconShield, IconArrowRight } from "@/components/icons";
-import { formatPrice } from "@/lib/format";
+import { formatPrice, formatInstallment, INSTALLMENTS } from "@/lib/format";
 
 const FREE_SHIPPING_THRESHOLD = 800;
 const SHIPPING_COST = 39;
@@ -197,6 +197,11 @@ export default function CheckoutPage() {
                 <span className="font-display text-2xl">{formatPrice(total)}</span>
               </div>
             </div>
+
+            <p className="mt-3 rounded-xl bg-sand/60 px-4 py-2.5 text-center text-xs text-stone">
+              {INSTALLMENTS} cuotas sin interés de {formatInstallment(total)} ·
+              o hasta 12 cuotas
+            </p>
 
             {error && (
               <p className="mt-4 rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700">

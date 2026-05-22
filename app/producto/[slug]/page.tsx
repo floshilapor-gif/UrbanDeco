@@ -11,7 +11,7 @@ import {
   getProductBySlug,
   getRelatedProducts,
 } from "@/lib/products";
-import { formatPrice } from "@/lib/format";
+import { formatPrice, formatInstallment, INSTALLMENTS } from "@/lib/format";
 
 export function generateStaticParams() {
   return PRODUCTS.map((p) => ({ slug: p.slug }));
@@ -94,6 +94,14 @@ export default async function ProductPage({
               </span>
             )}
           </div>
+
+          <p className="mt-2 text-sm text-stone">
+            <span className="font-medium text-ink">
+              {INSTALLMENTS} cuotas sin interés
+            </span>{" "}
+            de {formatInstallment(product.price)} · o hasta 12 cuotas con
+            tarjeta
+          </p>
 
           <p className="mt-5 leading-relaxed text-stone">
             {product.description}

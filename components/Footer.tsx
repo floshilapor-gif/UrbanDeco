@@ -109,8 +109,9 @@ export function Footer() {
           title="Ayuda"
           links={[
             { href: "/contacto", label: "Atención al cliente" },
-            { href: "/contacto", label: "Envíos y entregas" },
-            { href: "/contacto", label: "Devoluciones" },
+            { href: "/envios", label: "Envíos y entregas" },
+            { href: "/pagos", label: "Medios de pago" },
+            { href: "/cambios", label: "Cambios y devoluciones" },
           ]}
         />
       </div>

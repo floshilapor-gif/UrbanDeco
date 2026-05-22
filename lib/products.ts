@@ -251,6 +251,32 @@ export const PRODUCTS: Product[] = [
     badge: "2 plazas",
   },
   {
+    slug: "cama-cajonera-capri",
+    name: "Cama Cajonera Capri",
+    category: "camas",
+    price: 1050000,
+    image: "/images/cama-cajonera-capri.jpg",
+    fit: "contain",
+    gallery: [
+      { src: "/images/cama-cajonera-capri-2.jpg" },
+      { src: "/images/cama-cajonera-capri-3.jpg" },
+    ],
+    short:
+      "Cama de 2 plazas con baúl abatible y amplio espacio de guardado.",
+    description:
+      "Descanso y orden en una sola pieza. La Cama Cajonera Capri suma un práctico baúl abatible con pistones de gas bajo un mullido tapizado en lino, con respaldo de almohadón y faldón a juego. El espacio extra que tu dormitorio necesitaba.",
+    features: [
+      "Baúl abatible de gran capacidad",
+      "Pistones de gas de apertura suave",
+      "Tapizado en lino con faldón",
+      "Respaldo de almohadón",
+      "Sommier de listones reforzado",
+    ],
+    dimensions: "Para colchón de 2 plazas (140 × 190 cm)",
+    colors: ["Lino natural"],
+    badge: "Con baúl",
+  },
+  {
     slug: "juego-comedor-monaco",
     name: "Juego de Comedor Mónaco",
     category: "mesas",

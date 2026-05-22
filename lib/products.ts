@@ -170,6 +170,32 @@ export const PRODUCTS: Product[] = [
     badge: "Modular",
   },
   {
+    slug: "sillon-oslo",
+    name: "Sillón Oslo",
+    category: "sillones",
+    price: 1190000,
+    image: "/images/sillon-oslo.jpg",
+    fit: "cover",
+    gallery: [
+      { src: "/images/sillon-oslo-2.jpg" },
+      { src: "/images/sillon-oslo-3.jpg" },
+      { src: "/images/sillon-oslo-4.jpg" },
+    ],
+    short:
+      "Sofá esquinero con chaise longue reversible, en gris y patas de madera.",
+    description:
+      "Para estirarse y disfrutar. El Sillón Oslo es un cómodo sofá con chaise longue reversible (la ubicás a izquierda o derecha) tapizado en un suave gris, con almohadones mullidos y prolijas patas de madera. El rincón perfecto de tu living.",
+    features: [
+      "Chaise longue reversible (izq./der.)",
+      "Almohadones de respaldo sueltos",
+      "Tapizado gris de fácil mantenimiento",
+      "Patas de madera maciza",
+    ],
+    dimensions: "250 × 160 × 85 cm aprox.",
+    colors: ["Gris"],
+    badge: "Con chaise",
+  },
+  {
     slug: "cama-baul-lino",
     name: "Cama Baúl Lino",
     category: "camas",

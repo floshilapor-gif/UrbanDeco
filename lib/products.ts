@@ -39,6 +39,8 @@ export interface Product {
   fit?: "cover" | "contain";
   /** Selectable colour/finish variants, each with its own photo. */
   variants?: ProductVariant[];
+  /** Extra photos (angles/details) shown as a thumbnail gallery. */
+  gallery?: { src: string; fit?: "cover" | "contain" }[];
   featured?: boolean;
 }
 
@@ -148,6 +150,11 @@ export const PRODUCTS: Product[] = [
     price: 890000,
     image: "/images/sillon-monaco-3.jpg",
     fit: "cover",
+    gallery: [
+      { src: "/images/sillon-monaco.jpg", fit: "contain" },
+      { src: "/images/sillon-monaco-2.jpg", fit: "contain" },
+      { src: "/images/sillon-monaco-5.jpg", fit: "contain" },
+    ],
     short: "Sofá modular bajo de dos módulos en tela terracota, súper profundo.",
     description:
       "Comodidad sin reglas. El Sillón Mónaco es un sofá modular bajo de dos módulos, con asientos extra profundos y un cálido tapizado color terracota. Su respaldo envolvente y los almohadones sueltos invitan a tirarse a descansar. Se reconfigura según tu espacio.",
@@ -207,6 +214,7 @@ export const PRODUCTS: Product[] = [
     price: 920000,
     image: "/images/cama-nube.jpg",
     fit: "contain",
+    gallery: [{ src: "/images/cama-nube-2.jpg" }],
     short:
       "Cama de 2 plazas tapizada en bouclé gris, base baja y patas redondeadas.",
     description:
@@ -664,6 +672,7 @@ export const PRODUCTS: Product[] = [
     price: 450000,
     image: "/images/set-tulum.jpg",
     fit: "contain",
+    gallery: [{ src: "/images/set-tulum-2.jpg" }],
     short: "Juego de exterior en cuerda náutica y madera maciza, 5 piezas.",
     description:
       "Un oasis para tu patio o terraza. El set Tulum combina estructura de madera maciza con tejido de cuerda náutica resistente a la intemperie y mullidos cojines blancos. Incluye sofá de tres plazas, dos sillones, mesa de centro redonda y mesa auxiliar.",

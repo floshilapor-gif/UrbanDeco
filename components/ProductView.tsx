@@ -7,6 +7,12 @@ import { IconCheck, IconTruck, IconShield } from "./icons";
 import { formatPrice, formatInstallment, INSTALLMENTS } from "@/lib/format";
 import type { Product } from "@/lib/products";
 
+type Media = {
+  src: string;
+  fit?: "cover" | "contain";
+  label?: string;
+};
+
 export function ProductView({
   product,
   categoryLabel,
@@ -15,28 +21,76 @@ export function ProductView({
   categoryLabel: string;
 }) {
   const variants = product.variants ?? [];
+  const isVariant = variants.length > 0;
+
+  // Media is either the colour variants (with swatches) or the photo gallery.
+  const media: Media[] = isVariant
+    ? variants.map((v) => ({ src: v.image, fit: v.fit, label: v.label }))
+    : [
+        { src: product.image ?? "", fit: product.fit },
+        ...(product.gallery ?? []).map((g) => ({ src: g.src, fit: g.fit })),
+      ];
+
   const [selected, setSelected] = useState(0);
-  const current = variants[selected];
-  const image = current?.image ?? product.image;
+  const current = media[selected] ?? media[0];
   const fit = current?.fit ?? product.fit;
-  const imgClassName =
-    fit === "cover" ? "object-cover" : "object-contain p-10";
+  const imgClassName = fit === "cover" ? "object-cover" : "object-contain p-10";
+
+  const selectedVariant =
+    isVariant && current?.label
+      ? { label: current.label, image: current.src }
+      : null;
 
   return (
     <div className="mt-6 grid gap-10 lg:grid-cols-2 lg:gap-14">
-      {/* Image */}
-      <div className="relative aspect-square overflow-hidden rounded-3xl bg-white ring-1 ring-line">
-        <ProductImage
-          src={image}
-          alt={current ? `${product.name} — ${current.label}` : product.name}
-          priority
-          sizes="(min-width:1024px) 50vw, 100vw"
-          imgClassName={imgClassName}
-        />
-        {product.badge && (
-          <span className="absolute left-5 top-5 rounded-full bg-ink/90 px-3 py-1 text-[0.62rem] font-medium uppercase tracking-[0.16em] text-cream">
-            {product.badge}
-          </span>
+      {/* Image + gallery */}
+      <div>
+        <div className="relative aspect-square overflow-hidden rounded-3xl bg-white ring-1 ring-line">
+          <ProductImage
+            src={current?.src ?? product.image}
+            alt={
+              current?.label
+                ? `${product.name} — ${current.label}`
+                : product.name
+            }
+            priority
+            sizes="(min-width:1024px) 50vw, 100vw"
+            imgClassName={imgClassName}
+          />
+          {product.badge && (
+            <span className="absolute left-5 top-5 rounded-full bg-ink/90 px-3 py-1 text-[0.62rem] font-medium uppercase tracking-[0.16em] text-cream">
+              {product.badge}
+            </span>
+          )}
+        </div>
+
+        {/* Photo gallery thumbnails (non-variant products with extra angles) */}
+        {!isVariant && media.length > 1 && (
+          <div className="mt-3 flex gap-3">
+            {media.map((m, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => setSelected(i)}
+                aria-label={`Ver foto ${i + 1}`}
+                aria-pressed={i === selected}
+                className={`relative size-16 shrink-0 overflow-hidden rounded-xl bg-white ring-1 transition sm:size-20 ${
+                  i === selected ? "ring-2 ring-ink" : "ring-line hover:ring-clay"
+                }`}
+              >
+                <ProductImage
+                  src={m.src}
+                  alt=""
+                  sizes="80px"
+                  imgClassName={
+                    (m.fit ?? product.fit) === "cover"
+                      ? "object-cover"
+                      : "object-contain p-1.5"
+                  }
+                />
+              </button>
+            ))}
+          </div>
         )}
       </div>
 
@@ -68,7 +122,7 @@ export function ProductView({
         <p className="mt-5 leading-relaxed text-stone">{product.description}</p>
 
         {/* Colour variants */}
-        {variants.length > 0 ? (
+        {isVariant && (
           <div className="mt-7">
             <p className="text-xs font-medium uppercase tracking-[0.16em] text-stone">
               Color: <span className="text-ink">{current?.label}</span>
@@ -92,34 +146,32 @@ export function ProductView({
               ))}
             </div>
           </div>
-        ) : (
-          product.colors &&
-          product.colors.length > 0 && (
-            <div className="mt-7">
-              <p className="text-xs font-medium uppercase tracking-[0.16em] text-stone">
-                Acabados disponibles
-              </p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {product.colors.map((color) => (
-                  <span
-                    key={color}
-                    className="rounded-full border border-line bg-linen px-4 py-2 text-sm text-ink"
-                  >
-                    {color}
-                  </span>
-                ))}
-              </div>
+        )}
+
+        {/* Finishes (display only, for non-variant products) */}
+        {!isVariant && product.colors && product.colors.length > 0 && (
+          <div className="mt-7">
+            <p className="text-xs font-medium uppercase tracking-[0.16em] text-stone">
+              Acabados disponibles
+            </p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {product.colors.map((color) => (
+                <span
+                  key={color}
+                  className="rounded-full border border-line bg-linen px-4 py-2 text-sm text-ink"
+                >
+                  {color}
+                </span>
+              ))}
             </div>
-          )
+          </div>
         )}
 
         <div className="mt-8">
           <AddToCartButton
             product={product}
             variant="full"
-            selectedVariant={
-              current ? { label: current.label, image: current.image } : null
-            }
+            selectedVariant={selectedVariant}
           />
         </div>
 

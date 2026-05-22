@@ -409,6 +409,27 @@ export const PRODUCTS: Product[] = [
     colors: ["Marrón con cojines gris"],
     badge: "Doble",
   },
+  {
+    slug: "sillon-hamaca-huevo",
+    name: "Sillón Hamaca Huevo",
+    category: "jardin",
+    price: 350000,
+    image: "/images/sillon-hamaca-huevo.jpg",
+    fit: "contain",
+    short: "Sillón colgante individual tipo huevo, en ratán con pie de acero.",
+    description:
+      "El clásico que nunca falla. Sillón colgante individual con forma de huevo, tejido en ratán sintético resistente a la intemperie, con un cómodo almohadón color crema y pie de acero incluido. Tu rincón favorito para leer o tomar unos mates en la galería, el balcón o el jardín.",
+    features: [
+      "Diseño individual tipo huevo",
+      "Ratán sintético apto para exterior",
+      "Pie de acero incluido",
+      "Almohadón mullido incluido",
+      "Resistente al sol y la lluvia",
+    ],
+    dimensions: "Individual · pie de acero incluido",
+    colors: ["Antracita con cojín crema"],
+    badge: "Individual",
+  },
 ];
 
 export function getAllProducts(): Product[] {

@@ -109,6 +109,27 @@ export const PRODUCTS: Product[] = [
     colors: ["Gris bouclé", "Arena"],
   },
   {
+    slug: "sillon-monaco",
+    name: "Sillón Mónaco",
+    category: "sillones",
+    price: 890000,
+    image: "/images/sillon-monaco-3.jpg",
+    fit: "cover",
+    short: "Sofá modular bajo de dos módulos en tela terracota, súper profundo.",
+    description:
+      "Comodidad sin reglas. El Sillón Mónaco es un sofá modular bajo de dos módulos, con asientos extra profundos y un cálido tapizado color terracota. Su respaldo envolvente y los almohadones sueltos invitan a tirarse a descansar. Se reconfigura según tu espacio.",
+    features: [
+      "Dos módulos reconfigurables",
+      "Asiento extra profundo",
+      "Tapizado color terracota",
+      "Almohadones sueltos incluidos",
+      "Base flotante",
+    ],
+    dimensions: "200 × 100 × 70 cm",
+    colors: ["Terracota"],
+    badge: "Modular",
+  },
+  {
     slug: "cama-baul-lino",
     name: "Cama Baúl Lino",
     category: "camas",

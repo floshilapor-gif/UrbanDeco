@@ -376,11 +376,11 @@ export default function HomePage() {
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {WHY_US.map(({ Icon, title, text }, i) => (
               <Reveal key={title} delay={(i % 3) * 80}>
-                <article className="flex h-full flex-col items-center rounded-3xl bg-cream p-8 text-center ring-1 ring-line transition hover:ring-clay">
-                  <span className="grid size-14 place-items-center rounded-full bg-linen ring-1 ring-line">
-                    <Icon className="size-6 text-clay" />
+                <article className="flex h-full flex-col items-center rounded-3xl bg-cream p-6 text-center ring-1 ring-line transition hover:ring-clay sm:p-8">
+                  <span className="grid size-12 place-items-center rounded-full bg-linen ring-1 ring-line sm:size-14">
+                    <Icon className="size-5 text-clay sm:size-6" />
                   </span>
-                  <h3 className="mt-5 font-display text-lg">{title}</h3>
+                  <h3 className="mt-4 font-display text-lg sm:mt-5">{title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-stone">
                     {text}
                   </p>
@@ -394,7 +394,7 @@ export default function HomePage() {
       {/* Métodos de pago + Números (dark trust band) */}
       <section className="relative isolate overflow-hidden bg-ink text-cream">
         <StarField />
-        <div className="relative mx-auto w-full max-w-7xl px-5 py-20 sm:px-8 lg:py-24">
+        <div className="relative mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 sm:py-20 lg:py-24">
           {/* Métodos de pago */}
           <Reveal>
             <header className="text-center">
@@ -406,12 +406,12 @@ export default function HomePage() {
               </h2>
             </header>
           </Reveal>
-          <div className="mx-auto mt-10 grid max-w-3xl gap-4 sm:grid-cols-3">
+          <div className="mx-auto mt-10 grid max-w-3xl grid-cols-3 gap-3 sm:gap-4">
             {PAYMENT_METHODS.map(({ Icon, label }, i) => (
               <Reveal key={label} delay={i * 90}>
-                <div className="flex flex-col items-center justify-center rounded-2xl border border-cream/15 bg-cream/[0.04] px-6 py-8 transition hover:border-cream/30 hover:bg-cream/[0.08]">
-                  <Icon className="size-9 text-cream" />
-                  <p className="mt-4 text-xs font-medium uppercase tracking-[0.22em] text-cream/90">
+                <div className="flex h-full flex-col items-center justify-center rounded-2xl border border-cream/15 bg-cream/[0.04] px-3 py-5 transition hover:border-cream/30 hover:bg-cream/[0.08] sm:px-6 sm:py-8">
+                  <Icon className="size-7 text-cream sm:size-9" />
+                  <p className="mt-2.5 text-[0.62rem] font-medium uppercase tracking-[0.18em] text-cream/90 sm:mt-4 sm:text-xs sm:tracking-[0.22em]">
                     {label}
                   </p>
                 </div>
@@ -420,11 +420,11 @@ export default function HomePage() {
           </div>
 
           {/* Divider */}
-          <div className="mx-auto mt-20 h-px max-w-2xl bg-cream/15" />
+          <div className="mx-auto mt-14 h-px max-w-2xl bg-cream/15 sm:mt-20" />
 
           {/* Números */}
           <Reveal>
-            <header className="mt-20 text-center">
+            <header className="mt-14 text-center sm:mt-20">
               <p className="text-xs font-medium uppercase tracking-[0.32em] text-cream/65">
                 Trayectoria
               </p>
@@ -447,11 +447,11 @@ export default function HomePage() {
           </div>
 
           {/* Divider */}
-          <div className="mx-auto mt-20 h-px max-w-2xl bg-cream/15" />
+          <div className="mx-auto mt-14 h-px max-w-2xl bg-cream/15 sm:mt-20" />
 
           {/* Envíos */}
           <Reveal>
-            <header className="mt-20 text-center">
+            <header className="mt-14 text-center sm:mt-20">
               <p className="text-xs font-medium uppercase tracking-[0.32em] text-cream/65">
                 Logística
               </p>
@@ -492,11 +492,11 @@ export default function HomePage() {
           </Reveal>
 
           {/* Divider */}
-          <div className="mx-auto mt-20 h-px max-w-2xl bg-cream/15" />
+          <div className="mx-auto mt-14 h-px max-w-2xl bg-cream/15 sm:mt-20" />
 
           {/* Tu compra está protegida */}
           <Reveal>
-            <header className="mt-20 text-center">
+            <header className="mt-14 text-center sm:mt-20">
               <p className="text-xs font-medium uppercase tracking-[0.32em] text-cream/65">
                 Respaldo
               </p>
@@ -554,7 +554,11 @@ export default function HomePage() {
         </Reveal>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {TESTIMONIALS.map((t, i) => (
-            <Reveal key={t.name} delay={i * 100}>
+            <Reveal
+              key={t.name}
+              delay={i * 100}
+              className={i >= 3 ? "hidden md:block" : ""}
+            >
               <figure className="flex h-full flex-col rounded-3xl border border-line bg-linen p-7">
                 <div className="flex gap-0.5 text-taupe">
                   {Array.from({ length: 5 }).map((_, j) => (

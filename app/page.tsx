@@ -162,6 +162,42 @@ const TESTIMONIALS = [
     quote:
       "Muebles preciosos y muy bien embalados. Se nota la calidad de los materiales. Vuelvo a comprar seguro.",
   },
+  {
+    name: "Sofía B.",
+    location: "La Plata",
+    quote:
+      "El rack Recoleta quedó hermoso, los terminados se notan apenas lo armás. Súper recomendable, ya recomendé a mis amigas.",
+  },
+  {
+    name: "Javier T.",
+    location: "Mendoza",
+    quote:
+      "Renové todo el living con Urban Deco. El equipo me asesoró por WhatsApp para combinar colores. Diez puntos de principio a fin.",
+  },
+  {
+    name: "Laura C.",
+    location: "Mar del Plata",
+    quote:
+      "El envío al interior tardó lo prometido y la cama llegó intacta. Es enorme y comodísima. Estoy muy contenta con la compra.",
+  },
+  {
+    name: "Diego P.",
+    location: "San Isidro, BsAs",
+    quote:
+      "Pedí el set Ibiza para la galería. La calidad para exterior es de otro nivel — resistente y cómodo a la vez. Sí o sí volvería a comprar.",
+  },
+  {
+    name: "Valentina S.",
+    location: "Belgrano, CABA",
+    quote:
+      "Las sillas Bristol quedaron espectaculares en mi comedor. El tapizado es de muy buena calidad, mejor de lo que esperaba por el precio.",
+  },
+  {
+    name: "Mauricio L.",
+    location: "Tucumán",
+    quote:
+      "Atención impecable. Tenía dudas con los colores y me mandaron fotos extras antes de comprar. Muy profesionales, todo perfecto.",
+  },
 ];
 
 const HERO_THUMBS = ["sofa-mykonos", "sofa-madrid", "cama-baul-lino"]

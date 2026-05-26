@@ -101,6 +101,7 @@ export function Footer() {
           title="Compañía"
           links={[
             { href: "/nosotros", label: "Sobre nosotros" },
+            { href: "/inspiracion", label: "Inspírate" },
             { href: "/catalogo", label: "Catálogo" },
             { href: "/contacto", label: "Contacto" },
           ]}
@@ -109,6 +110,7 @@ export function Footer() {
           title="Ayuda"
           links={[
             { href: "/contacto", label: "Atención al cliente" },
+            { href: "/faq", label: "Preguntas frecuentes" },
             { href: "/envios", label: "Envíos y entregas" },
             { href: "/pagos", label: "Medios de pago" },
             { href: "/cambios", label: "Cambios y devoluciones" },

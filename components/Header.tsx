@@ -6,7 +6,8 @@ import { useEffect, useState } from "react";
 import { Logo } from "./Logo";
 import { CartDrawer } from "./CartDrawer";
 import { useCart } from "./CartProvider";
-import { IconBag, IconMenu, IconClose } from "./icons";
+import { IconBag, IconMenu, IconClose, IconSearch } from "./icons";
+import { SearchDialog } from "./SearchDialog";
 
 const NAV = [
   { href: "/", label: "Inicio", base: "/" },
@@ -23,6 +24,7 @@ export function Header() {
   const pathname = usePathname();
   const { count, openCart, hydrated } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   const isHome = pathname === "/";
@@ -98,6 +100,14 @@ export function Header() {
           <div className="flex items-center gap-1.5">
             <button
               type="button"
+              onClick={() => setSearchOpen(true)}
+              aria-label="Buscar productos"
+              className={iconButton}
+            >
+              <IconSearch className="size-5" />
+            </button>
+            <button
+              type="button"
               onClick={openCart}
               aria-label="Abrir carrito"
               className={iconButton}
@@ -145,6 +155,10 @@ export function Header() {
       </header>
 
       <CartDrawer />
+      <SearchDialog
+        open={searchOpen}
+        onClose={() => setSearchOpen(false)}
+      />
     </>
   );
 }

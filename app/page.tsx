@@ -17,6 +17,9 @@ import {
   IconClock,
   IconPin,
   IconCheck,
+  IconUsers,
+  IconTag,
+  IconHeadset,
 } from "@/components/icons";
 import {
   CATEGORIES,
@@ -70,6 +73,39 @@ const SHIPPING_HIGHLIGHTS = [
   "CABA y GBA: 1-2 días",
   "Interior: 3-5 días",
   "Retiro en persona disponible",
+];
+
+const WHY_US = [
+  {
+    Icon: IconSparkle,
+    title: "Materiales premium",
+    text: "Trabajamos con maderas nobles, telas y cueros cuidadosamente seleccionados para que cada pieza dure.",
+  },
+  {
+    Icon: IconShield,
+    title: "Garantía 2 años",
+    text: "Cubrimos defectos de fabricación durante 2 años desde la entrega de tu pedido.",
+  },
+  {
+    Icon: IconUsers,
+    title: "+78.555 clientes",
+    text: "Familias en todo el país ya confían en Urban Deco para amueblar su hogar.",
+  },
+  {
+    Icon: IconTruck,
+    title: "Envíos a todo el país",
+    text: "Envíos seguros por Andreani con código de seguimiento en tiempo real, directo a tu casa.",
+  },
+  {
+    Icon: IconTag,
+    title: "Mejores precios",
+    text: "Comprá directo sin intermediarios y aprovechá precios competitivos en todo el catálogo.",
+  },
+  {
+    Icon: IconHeadset,
+    title: "Atención personalizada",
+    text: "Te asesoramos antes, durante y después de tu compra. Respondemos por WhatsApp al instante.",
+  },
 ];
 
 const TESTIMONIALS = [
@@ -255,8 +291,37 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ¿Por qué elegir Urban Deco? */}
+      <section className="mt-16 border-y border-line bg-linen">
+        <div className="mx-auto w-full max-w-7xl px-5 py-16 sm:px-8 lg:py-20">
+          <Reveal>
+            <header className="text-center">
+              <p className="eyebrow">Por qué nosotros</p>
+              <h2 className="mt-3 font-display text-3xl sm:text-4xl">
+                ¿Por qué elegir Urban Deco?
+              </h2>
+            </header>
+          </Reveal>
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {WHY_US.map(({ Icon, title, text }, i) => (
+              <Reveal key={title} delay={(i % 3) * 80}>
+                <article className="flex h-full flex-col items-center rounded-3xl bg-cream p-8 text-center ring-1 ring-line transition hover:ring-clay">
+                  <span className="grid size-14 place-items-center rounded-full bg-linen ring-1 ring-line">
+                    <Icon className="size-6 text-clay" />
+                  </span>
+                  <h3 className="mt-5 font-display text-lg">{title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-stone">
+                    {text}
+                  </p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Métodos de pago + Números (dark trust band) */}
-      <section className="relative isolate mt-20 overflow-hidden bg-ink text-cream">
+      <section className="relative isolate overflow-hidden bg-ink text-cream">
         <StarField />
         <div className="relative mx-auto w-full max-w-7xl px-5 py-20 sm:px-8 lg:py-24">
           {/* Métodos de pago */}

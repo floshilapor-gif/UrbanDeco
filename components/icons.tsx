@@ -229,3 +229,34 @@ export function IconPin(props: IconProps) {
     </svg>
   );
 }
+
+export function IconUsers(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <circle cx="9" cy="8" r="3.5" />
+      <path d="M2.5 20.5c0-3.5 3-6 6.5-6s6.5 2.5 6.5 6" />
+      <circle cx="17" cy="9" r="2.5" />
+      <path d="M16 14.8c3 0 5.5 2 5.5 4.7" />
+    </svg>
+  );
+}
+
+export function IconTag(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M3.5 12.5l9-9 8 1 1 8-9 9-9-9Z" />
+      <circle cx="15" cy="9" r="1.3" />
+    </svg>
+  );
+}
+
+export function IconHeadset(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M4 14v-2a8 8 0 0 1 16 0v2" />
+      <rect x="3" y="13.5" width="4" height="6" rx="1.5" />
+      <rect x="17" y="13.5" width="4" height="6" rx="1.5" />
+      <path d="M19 19.5v.5a2.5 2.5 0 0 1-2.5 2.5H13" />
+    </svg>
+  );
+}

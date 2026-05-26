@@ -14,6 +14,9 @@ import {
   IconBank,
   IconCash,
   IconCard,
+  IconClock,
+  IconPin,
+  IconCheck,
 } from "@/components/icons";
 import {
   CATEGORIES,
@@ -38,6 +41,35 @@ const STATS = [
   { value: "+78.555", label: "Clientes satisfechos" },
   { value: "+9.559", label: "Seguidores en Instagram" },
   { value: "+3", label: "Años en el rubro" },
+];
+
+const SHIPPING_FEATURES = [
+  {
+    Icon: IconTruck,
+    title: "Andreani",
+    text: "Express a todo el país con código de seguimiento para rastrear tu pedido.",
+  },
+  {
+    Icon: IconShield,
+    title: "100% Seguro",
+    text: "Paquetes con embalaje reforzado y seguro incluido para proteger tu producto.",
+  },
+  {
+    Icon: IconClock,
+    title: "2 a 5 días hábiles",
+    text: "Recibí tu pedido en tiempo récord sin importar en qué parte del país estés.",
+  },
+  {
+    Icon: IconPin,
+    title: "Seguimiento en vivo",
+    text: "Rastreá tu envío en todo momento con el código que te enviamos por email.",
+  },
+];
+
+const SHIPPING_HIGHLIGHTS = [
+  "CABA y GBA: 1-2 días",
+  "Interior: 3-5 días",
+  "Retiro en persona disponible",
 ];
 
 const TESTIMONIALS = [
@@ -277,6 +309,51 @@ export default function HomePage() {
               </Reveal>
             ))}
           </div>
+
+          {/* Divider */}
+          <div className="mx-auto mt-20 h-px max-w-2xl bg-cream/15" />
+
+          {/* Envíos */}
+          <Reveal>
+            <header className="mt-20 text-center">
+              <p className="text-xs font-medium uppercase tracking-[0.32em] text-cream/65">
+                Logística
+              </p>
+              <h2 className="mt-3 font-display text-3xl sm:text-5xl">
+                Envíos a todo el país
+              </h2>
+              <p className="mx-auto mt-5 max-w-2xl leading-relaxed text-cream/75">
+                Realizamos envíos a todo el país de manera 100% segura. Tu
+                pedido llega a la puerta de tu casa con seguimiento en tiempo
+                real.
+              </p>
+            </header>
+          </Reveal>
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {SHIPPING_FEATURES.map(({ Icon, title, text }, i) => (
+              <Reveal key={title} delay={i * 80}>
+                <div className="flex h-full flex-col items-center rounded-2xl border border-cream/15 bg-cream/[0.04] p-6 text-center transition hover:border-cream/30 hover:bg-cream/[0.08]">
+                  <Icon className="size-8 text-cream" />
+                  <p className="mt-4 font-display text-lg text-cream">
+                    {title}
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-cream/70">
+                    {text}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal delay={200}>
+            <ul className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-cream/85">
+              {SHIPPING_HIGHLIGHTS.map((item) => (
+                <li key={item} className="flex items-center gap-2">
+                  <IconCheck className="size-4 text-clay" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
         </div>
       </section>
 

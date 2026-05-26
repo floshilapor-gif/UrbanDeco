@@ -211,3 +211,21 @@ export function IconCard(props: IconProps) {
     </svg>
   );
 }
+
+export function IconClock(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v5l3 2" />
+    </svg>
+  );
+}
+
+export function IconPin(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M12 21s-7-7-7-12a7 7 0 0 1 14 0c0 5-7 12-7 12Z" />
+      <circle cx="12" cy="9" r="2.5" />
+    </svg>
+  );
+}

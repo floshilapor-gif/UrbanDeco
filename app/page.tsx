@@ -20,6 +20,10 @@ import {
   IconUsers,
   IconTag,
   IconHeadset,
+  IconBadge,
+  IconLock,
+  IconRefresh,
+  IconDocument,
 } from "@/components/icons";
 import {
   CATEGORIES,
@@ -73,6 +77,37 @@ const SHIPPING_HIGHLIGHTS = [
   "CABA y GBA: 1-2 días",
   "Interior: 3-5 días",
   "Retiro en persona disponible",
+];
+
+const PROTECTION_FEATURES = [
+  {
+    Icon: IconBadge,
+    iconColor: "text-emerald-300",
+    iconBg: "bg-emerald-500/15 ring-emerald-400/30",
+    title: "Garantía oficial Urban Deco — 2 años",
+    text: "Todos nuestros productos cuentan con 2 años de garantía oficial. Si presenta algún defecto de fabricación, nos encargamos de la reparación o reemplazo sin costo.",
+  },
+  {
+    Icon: IconLock,
+    iconColor: "text-sky-300",
+    iconBg: "bg-sky-500/15 ring-sky-400/30",
+    title: "Compra 100% segura",
+    text: "Tu dinero está protegido. Realizamos la transacción de forma segura y transparente. No procesamos ningún envío hasta que el pago esté confirmado y verificado.",
+  },
+  {
+    Icon: IconRefresh,
+    iconColor: "text-amber-300",
+    iconBg: "bg-amber-500/15 ring-amber-400/30",
+    title: "Política de devolución",
+    text: "Si recibís tu producto y tiene algún inconveniente, contactanos dentro de las primeras 48 horas. Nos hacemos cargo del cambio o devolución completa.",
+  },
+  {
+    Icon: IconDocument,
+    iconColor: "text-fuchsia-300",
+    iconBg: "bg-fuchsia-500/15 ring-fuchsia-400/30",
+    title: "Facturación y comprobante",
+    text: "Emitimos comprobante de compra con cada pedido. Tenés respaldo legal de tu adquisición para cualquier trámite o reclamo futuro.",
+  },
 ];
 
 const WHY_US = [
@@ -418,6 +453,55 @@ export default function HomePage() {
                 </li>
               ))}
             </ul>
+          </Reveal>
+
+          {/* Divider */}
+          <div className="mx-auto mt-20 h-px max-w-2xl bg-cream/15" />
+
+          {/* Tu compra está protegida */}
+          <Reveal>
+            <header className="mt-20 text-center">
+              <p className="text-xs font-medium uppercase tracking-[0.32em] text-cream/65">
+                Respaldo
+              </p>
+              <h2 className="mt-3 font-display text-3xl sm:text-5xl">
+                Tu compra está protegida
+              </h2>
+              <p className="mx-auto mt-5 max-w-2xl leading-relaxed text-cream/75">
+                Comprá con total tranquilidad y respaldo.
+              </p>
+            </header>
+          </Reveal>
+          <div className="mx-auto mt-12 grid max-w-4xl gap-4">
+            {PROTECTION_FEATURES.map(({ Icon, iconColor, iconBg, title, text }, i) => (
+              <Reveal key={title} delay={i * 80}>
+                <article className="flex flex-col items-start gap-5 rounded-2xl border border-cream/15 bg-cream/[0.04] p-6 transition hover:border-cream/30 hover:bg-cream/[0.07] sm:flex-row sm:items-center sm:p-7">
+                  <span
+                    className={`grid size-14 shrink-0 place-items-center rounded-full ring-1 ${iconBg}`}
+                  >
+                    <Icon className={`size-6 ${iconColor}`} />
+                  </span>
+                  <div className="flex-1">
+                    <h3 className="font-display text-lg text-cream sm:text-xl">
+                      {title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-cream/75">
+                      {text}
+                    </p>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal delay={300}>
+            <p className="mx-auto mt-10 flex items-center justify-center gap-2.5 text-sm text-cream">
+              <span className="grid size-5 place-items-center rounded-full bg-emerald-500 text-cream">
+                <IconCheck className="size-3" />
+              </span>
+              <span className="font-medium">
+                Más de 78.555 compras exitosas sin reclamos
+              </span>
+            </p>
           </Reveal>
         </div>
       </section>

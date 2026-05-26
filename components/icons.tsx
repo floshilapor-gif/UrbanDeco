@@ -260,3 +260,42 @@ export function IconHeadset(props: IconProps) {
     </svg>
   );
 }
+
+export function IconBadge(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M12 2l2 2 2.8-.5 1 2.7 2.7 1-.5 2.8 2 2-2 2 .5 2.8-2.7 1-1 2.7-2.8-.5L12 22l-2-2-2.8.5-1-2.7-2.7-1 .5-2.8-2-2 2-2-.5-2.8 2.7-1 1-2.7L10 4l2-2Z" />
+      <path d="M9 12l2 2 4-4" />
+    </svg>
+  );
+}
+
+export function IconLock(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <rect x="5" y="11" width="14" height="9" rx="2" />
+      <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+    </svg>
+  );
+}
+
+export function IconRefresh(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M3 12a9 9 0 0 1 15.5-6.3" />
+      <path d="M19 4v4h-4" />
+      <path d="M21 12a9 9 0 0 1-15.5 6.3" />
+      <path d="M5 20v-4h4" />
+    </svg>
+  );
+}
+
+export function IconDocument(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z" />
+      <path d="M14 3v5h5" />
+      <path d="M9 14h6M9 17h4" />
+    </svg>
+  );
+}

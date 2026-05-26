@@ -181,3 +181,33 @@ export function IconSearch(props: IconProps) {
     </svg>
   );
 }
+
+export function IconBank(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M3 21h18" />
+      <path d="M5 10v9M9 10v9M15 10v9M19 10v9" />
+      <path d="M2 10l10-6 10 6" />
+    </svg>
+  );
+}
+
+export function IconCash(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <rect x="3" y="7" width="18" height="10" rx="1.5" />
+      <circle cx="12" cy="12" r="2.5" />
+      <path d="M6 9.5v.01M18 14.5v.01" />
+    </svg>
+  );
+}
+
+export function IconCard(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <rect x="3" y="6" width="18" height="12" rx="2" />
+      <path d="M3 10h18" />
+      <path d="M7 14h3" />
+    </svg>
+  );
+}

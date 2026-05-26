@@ -11,6 +11,9 @@ import {
   IconSparkle,
   IconLeaf,
   IconStar,
+  IconBank,
+  IconCash,
+  IconCard,
 } from "@/components/icons";
 import {
   CATEGORIES,
@@ -23,6 +26,18 @@ const VALUE_PROPS = [
   { Icon: IconShield, title: "Garantía 2 años", text: "Calidad que respalda cada pieza." },
   { Icon: IconSparkle, title: "Pago 100% seguro", text: "Cifrado y protegido en cada compra." },
   { Icon: IconLeaf, title: "Materiales nobles", text: "Tejidos y maderas seleccionados." },
+];
+
+const PAYMENT_METHODS = [
+  { Icon: IconBank, label: "Transferencia" },
+  { Icon: IconCash, label: "Efectivo" },
+  { Icon: IconCard, label: "Tarjeta" },
+];
+
+const STATS = [
+  { value: "+78.555", label: "Clientes satisfechos" },
+  { value: "+9.559", label: "Seguidores en Instagram" },
+  { value: "+3", label: "Años en el rubro" },
 ];
 
 const TESTIMONIALS = [
@@ -152,7 +167,7 @@ export default function HomePage() {
         </Reveal>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {CATEGORIES.map((c, i) => (
+          {CATEGORIES.filter((c) => c.slug !== "deco").map((c, i) => (
             <Reveal key={c.slug} delay={(i % 3) * 90}>
               <Link
                 href={`/catalogo?cat=${c.slug}`}
@@ -205,6 +220,63 @@ export default function HomePage() {
               <ProductCard product={p} priority={i < 2} />
             </Reveal>
           ))}
+        </div>
+      </section>
+
+      {/* Métodos de pago + Números (dark trust band) */}
+      <section className="relative isolate mt-20 overflow-hidden bg-ink text-cream">
+        <StarField />
+        <div className="relative mx-auto w-full max-w-7xl px-5 py-20 sm:px-8 lg:py-24">
+          {/* Métodos de pago */}
+          <Reveal>
+            <header className="text-center">
+              <p className="text-xs font-medium uppercase tracking-[0.32em] text-cream/65">
+                Confianza
+              </p>
+              <h2 className="mt-3 font-display text-3xl sm:text-4xl">
+                Métodos de pago
+              </h2>
+            </header>
+          </Reveal>
+          <div className="mx-auto mt-10 grid max-w-3xl gap-4 sm:grid-cols-3">
+            {PAYMENT_METHODS.map(({ Icon, label }, i) => (
+              <Reveal key={label} delay={i * 90}>
+                <div className="flex flex-col items-center justify-center rounded-2xl border border-cream/15 bg-cream/[0.04] px-6 py-8 transition hover:border-cream/30 hover:bg-cream/[0.08]">
+                  <Icon className="size-9 text-cream" />
+                  <p className="mt-4 text-xs font-medium uppercase tracking-[0.22em] text-cream/90">
+                    {label}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          {/* Divider */}
+          <div className="mx-auto mt-20 h-px max-w-2xl bg-cream/15" />
+
+          {/* Números */}
+          <Reveal>
+            <header className="mt-20 text-center">
+              <p className="text-xs font-medium uppercase tracking-[0.32em] text-cream/65">
+                Trayectoria
+              </p>
+              <h2 className="mt-3 font-display text-3xl sm:text-4xl">
+                Números que nos respaldan
+              </h2>
+            </header>
+          </Reveal>
+          <div className="mx-auto mt-12 grid max-w-4xl gap-10 sm:grid-cols-3">
+            {STATS.map((s, i) => (
+              <Reveal key={s.label} delay={i * 110}>
+                <div className="text-center">
+                  <p className="font-display text-5xl text-cream sm:text-6xl">
+                    {s.value}
+                  </p>
+                  <p className="mt-3 text-sm text-cream/75">{s.label}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -49,7 +49,7 @@ export const CATEGORIES: Category[] = [
     slug: "sillones",
     label: "Sillones",
     tagline: "Sofás y sillones de diseño",
-    image: "/images/sillon-monaco-3.jpg",
+    image: "/images/coleccion-sillones.jpg",
   },
   {
     slug: "mesas",

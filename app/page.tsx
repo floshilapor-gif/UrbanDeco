@@ -5,6 +5,7 @@ import { ProductCard } from "@/components/ProductCard";
 import { Reveal } from "@/components/Reveal";
 import { StarField } from "@/components/StarField";
 import { Counter } from "@/components/Counter";
+import { Newsletter } from "@/components/Newsletter";
 import {
   IconArrowRight,
   IconTruck,
@@ -364,6 +365,52 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Lookbook editorial */}
+      <section className="mx-auto w-full max-w-7xl px-5 pt-20 sm:px-8 lg:pt-28">
+        <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-center lg:gap-16">
+          <Reveal>
+            <Link
+              href="/inspiracion"
+              className="group relative block aspect-[5/4] overflow-hidden rounded-3xl ring-1 ring-line"
+            >
+              <Image
+                src="/images/sillon-monaco-3.jpg"
+                alt="Ambiente Urban Deco — sofá modular en terracota"
+                fill
+                sizes="(min-width:1024px) 58vw, 100vw"
+                className="object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-ink/5 to-transparent" />
+              <span className="absolute bottom-6 left-6 inline-flex items-center gap-2 rounded-full bg-cream/95 px-4 py-2 text-[0.65rem] font-medium uppercase tracking-[0.22em] text-ink backdrop-blur-sm">
+                Editorial · Otoño 2026
+              </span>
+            </Link>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <div className="lg:pl-4">
+              <p className="eyebrow">Lookbook</p>
+              <h2 className="mt-3 font-display text-4xl leading-tight sm:text-5xl">
+                Ambientes que{" "}
+                <em className="font-normal italic text-clay">cuentan</em>{" "}
+                historias
+              </h2>
+              <p className="mt-5 max-w-md leading-relaxed text-stone">
+                Cada estación curamos selecciones pensadas para inspirarte.
+                Combinaciones de texturas, paletas y piezas que hablan de cómo
+                querés vivir tu hogar.
+              </p>
+              <Link
+                href="/inspiracion"
+                className="mt-7 inline-flex items-center gap-2 rounded-full border border-ink px-7 py-3.5 text-sm font-medium uppercase tracking-[0.16em] text-ink transition hover:bg-ink hover:text-cream"
+              >
+                Ver lookbook completo <IconArrowRight className="size-4" />
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ¿Por qué elegir Urban Deco? */}
       <section className="mt-16 border-y border-line bg-linen">
         <div className="mx-auto w-full max-w-7xl px-5 py-16 sm:px-8 lg:py-20">
@@ -582,8 +629,11 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Newsletter */}
+      <Newsletter />
+
       {/* Editorial band */}
-      <section className="relative isolate mt-20 overflow-hidden bg-ink text-cream">
+      <section className="relative isolate overflow-hidden bg-ink text-cream">
         <StarField />
         <div className="relative mx-auto grid w-full max-w-7xl gap-8 px-5 py-20 sm:px-8 lg:grid-cols-2 lg:items-center">
           <Reveal>

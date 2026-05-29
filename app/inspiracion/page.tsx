@@ -58,7 +58,7 @@ const LOOKS: Look[] = [
     fit: "cover",
     description:
       "Una cama King imponente con respaldo ranurado, textiles cálidos y luces ambientales. Para que cada noche se sienta como un mini retiro.",
-    products: ["cama-king-imperial", "cama-cajonera-capri", "cama-nube"],
+    products: ["cama-king-imperial", "cama-victoria", "cama-nube"],
   },
   {
     slug: "cine-en-casa",

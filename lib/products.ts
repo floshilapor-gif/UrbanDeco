@@ -369,7 +369,7 @@ export const PRODUCTS: Product[] = [
     slug: "cama-baul-lino",
     name: "Cama Baúl Lino",
     category: "camas",
-    price: 1150,
+    price: 325000,
     image: "/images/camabaul.jpeg",
     short: "Cama con canapé abatible y tapizado en lino natural.",
     description:
@@ -389,7 +389,7 @@ export const PRODUCTS: Product[] = [
     slug: "cama-baul-arena",
     name: "Cama Baúl Arena",
     category: "camas",
-    price: 1290,
+    price: 325000,
     image: "/images/camabaul.jpeg",
     short: "Formato 160×200 en tono arena con canapé de gran capacidad.",
     description:
@@ -407,7 +407,7 @@ export const PRODUCTS: Product[] = [
     slug: "cama-nube",
     name: "Cama Nube",
     category: "camas",
-    price: 920000,
+    price: 280000,
     image: "/images/cama-nube.jpg",
     fit: "contain",
     gallery: [{ src: "/images/cama-nube-2.jpg" }],
@@ -429,7 +429,7 @@ export const PRODUCTS: Product[] = [
     slug: "cama-victoria",
     name: "Cama Victoria",
     category: "camas",
-    price: 980000,
+    price: 280000,
     image: "/images/cama-rosa.jpg",
     fit: "contain",
     short:
@@ -447,36 +447,10 @@ export const PRODUCTS: Product[] = [
     badge: "2 plazas",
   },
   {
-    slug: "cama-cajonera-capri",
-    name: "Cama Cajonera Capri",
-    category: "camas",
-    price: 1050000,
-    image: "/images/cama-cajonera-capri.jpg",
-    fit: "contain",
-    gallery: [
-      { src: "/images/cama-cajonera-capri-2.jpg" },
-      { src: "/images/cama-cajonera-capri-3.jpg" },
-    ],
-    short:
-      "Cama de 2 plazas con baúl abatible y amplio espacio de guardado.",
-    description:
-      "Descanso y orden en una sola pieza. La Cama Cajonera Capri suma un práctico baúl abatible con pistones de gas bajo un mullido tapizado en lino, con respaldo de almohadón y faldón a juego. El espacio extra que tu dormitorio necesitaba.",
-    features: [
-      "Baúl abatible de gran capacidad",
-      "Pistones de gas de apertura suave",
-      "Tapizado en lino con faldón",
-      "Respaldo de almohadón",
-      "Sommier de listones reforzado",
-    ],
-    dimensions: "Para colchón de 2 plazas (140 × 190 cm)",
-    colors: ["Lino natural"],
-    badge: "Con baúl",
-  },
-  {
     slug: "cama-king-imperial",
     name: "Cama King Imperial",
     category: "camas",
-    price: 1290000,
+    price: 650000,
     image: "/images/cama-king-imperial.jpg",
     fit: "cover",
     gallery: [

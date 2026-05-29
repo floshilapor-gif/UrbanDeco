@@ -117,7 +117,7 @@ export const PRODUCTS: Product[] = [
     category: "sillones",
     price: 2490,
     compareAt: 2790,
-    image: "/images/madridsillon.jpeg",
+    image: "/images/sillonmadrid.jpeg",
     short: "Seccional modular en chenille gris con costuras geométricas.",
     description:
       "Inspirado en el lujo discreto de los áticos de la ciudad, el Madrid combina módulos profundos con un acolchado geométrico que aporta textura y personalidad. Pensado para grandes salones, se adapta en L o en línea según tu espacio.",
@@ -131,6 +131,62 @@ export const PRODUCTS: Product[] = [
     colors: ["Gris piedra", "Antracita", "Crema"],
     badge: "Nuevo",
     featured: true,
+    gallery: [
+      { src: "/images/madridsillon.jpeg" },
+      { src: "/images/sillonmadridddd.jpeg" },
+      { src: "/images/sillonmadriddd.jpeg" },
+    ],
+  },
+  {
+    slug: "sillon-chester",
+    name: "Sillón Chester",
+    category: "sillones",
+    price: 890000,
+    image: "/images/sillonchester.jpeg",
+    short: "Sofá Chesterfield capitoné blanco con apoyabrazos torneados.",
+    description:
+      "Un clásico que nunca pasa de moda. El Chester combina el capitoné tradicional con un tapizado en velvet blanco y apoyabrazos torneados con detalle radial. Disponible en 3 plazas (versión principal) y 2 plazas para espacios más íntimos.",
+    features: [
+      "Tapizado capitoné cosido a mano",
+      "Apoyabrazos torneados con detalle radial",
+      "Patas torneadas de madera maciza",
+      "Disponible en 2 y 3 plazas",
+    ],
+    dimensions: "240 × 95 × 75 cm (3 plazas)",
+    colors: ["Blanco roto", "Crema"],
+    badge: "Nuevo",
+    gallery: [{ src: "/images/sillonchesterr.jpeg" }],
+  },
+  {
+    slug: "sillon-cama-lino",
+    name: "Sillón Cama Lino",
+    category: "sillones",
+    price: 650000,
+    image: "/images/silloncamalinooo.jpeg",
+    short: "Sofá cama de 3 plazas en pana con cama oculta. Elegí el color.",
+    description:
+      "El compañero ideal para recibir invitados o transformar un ambiente en habitación cuando lo necesites. Tapizado en pana de gran calidez, con mecanismo de cama deslizable y un diseño minimalista que combina con cualquier ambiente.",
+    features: [
+      "Cama de 2 plazas oculta y deslizable",
+      "Tapizado en pana (corduroy) suave al tacto",
+      "Estructura reforzada de madera maciza",
+      "Almohadones desenfundables",
+    ],
+    dimensions: "225 × 100 × 85 cm",
+    badge: "Nuevo",
+    variants: [
+      {
+        label: "Lino",
+        image: "/images/silloncamalinooo.jpeg",
+        swatch: "#e9e1d2",
+      },
+      {
+        label: "Gris",
+        image: "/images/silloncamalinoo.jpeg",
+        swatch: "#9aa1a8",
+      },
+    ],
+    gallery: [{ src: "/images/silloncamalino.jpeg" }],
   },
   {
     slug: "sofa-mykonos-2-plazas",

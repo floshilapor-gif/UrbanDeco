@@ -9,13 +9,11 @@ import {
   IconArrowRight,
   IconWhatsApp,
   IconBank,
-  IconCash,
   IconCard,
 } from "@/components/icons";
 
 const METHOD_LABEL: Record<string, string> = {
   transferencia: "Transferencia bancaria",
-  efectivo: "Pago en efectivo en showroom",
   tarjeta: "Tarjeta de crédito/débito",
 };
 
@@ -57,7 +55,6 @@ function Confirmation() {
         <div className="mx-auto mt-6 max-w-md rounded-2xl border border-line bg-cream p-5 text-left">
           <p className="flex items-center gap-2 text-xs font-medium uppercase tracking-[0.16em] text-stone">
             {metodo === "transferencia" && <IconBank className="size-4" />}
-            {metodo === "efectivo" && <IconCash className="size-4" />}
             {metodo === "tarjeta" && <IconCard className="size-4" />}
             Método de pago elegido
           </p>
@@ -65,8 +62,6 @@ function Confirmation() {
           <p className="mt-3 text-sm leading-relaxed text-stone">
             {metodo === "transferencia" &&
               "Una vez que hagas la transferencia, mandanos el comprobante por WhatsApp y activamos tu pedido enseguida. Guardalo por las dudas."}
-            {metodo === "efectivo" &&
-              "Te esperamos en el showroom para coordinar el pago y la entrega. Si preferís retirar otro día, escribinos por WhatsApp."}
             {metodo === "tarjeta" &&
               "En las próximas horas vas a recibir por WhatsApp un link de pago seguro para completar la compra con tu tarjeta."}
           </p>

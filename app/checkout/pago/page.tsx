@@ -8,7 +8,6 @@ import { ProductImage } from "@/components/ProductImage";
 import {
   IconArrowRight,
   IconBank,
-  IconCash,
   IconCard,
   IconCheck,
   IconWhatsApp,
@@ -39,7 +38,7 @@ const SHOWROOM_INFO = {
   cierre: "Te esperamos ✨",
 };
 
-type Method = "transferencia" | "efectivo" | "tarjeta";
+type Method = "transferencia" | "tarjeta";
 
 const METHODS: {
   id: Method;
@@ -54,12 +53,6 @@ const METHODS: {
     label: "Transferencia bancaria",
     description: "Transferí desde tu home banking. Te confirmamos al instante.",
     highlight: "Sin recargos",
-  },
-  {
-    id: "efectivo",
-    Icon: IconCash,
-    label: "Efectivo en showroom",
-    description: "Pagás al retirar o coordinás con un asesor por WhatsApp.",
   },
   {
     id: "tarjeta",
@@ -288,41 +281,6 @@ export default function PaymentMethodPage() {
                     >
                       <IconWhatsApp className="size-4" />
                       Enviar comprobante por WhatsApp
-                    </a>
-                  </div>
-                )}
-
-                {active && m.id === "efectivo" && (
-                  <div className="mt-5 rounded-2xl bg-linen p-5">
-                    <p className="text-xs font-medium uppercase tracking-[0.16em] text-stone">
-                      Pago en showroom
-                    </p>
-                    <dl className="mt-4 space-y-2.5 text-sm">
-                      <div>
-                        <dt className="text-stone">Dirección</dt>
-                        <dd className="mt-0.5 font-medium">
-                          {SHOWROOM_INFO.direccion}
-                        </dd>
-                      </div>
-                      <div>
-                        <dt className="text-stone">Horarios</dt>
-                        <dd className="mt-0.5 font-medium">
-                          {SHOWROOM_INFO.horarios}
-                        </dd>
-                      </div>
-                    </dl>
-                    <p className="mt-3 text-sm italic text-clay">
-                      {SHOWROOM_INFO.cierre}
-                    </p>
-                    <a
-                      href={`https://wa.me/${SHOWROOM_INFO.telefono.replace(/[^0-9]/g, "")}?text=${encodeURIComponent("Hola, quiero coordinar el pago en efectivo de mi pedido en Urban Deco.")}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="mt-4 inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-xs font-medium uppercase tracking-[0.14em] text-cream transition hover:bg-charcoal"
-                    >
-                      <IconWhatsApp className="size-4" />
-                      Coordinar por WhatsApp
                     </a>
                   </div>
                 )}

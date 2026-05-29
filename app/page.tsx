@@ -30,7 +30,6 @@ import {
   IconLeaf,
   IconStar,
   IconBank,
-  IconCash,
   IconCard,
   IconClock,
   IconPin,
@@ -58,7 +57,6 @@ const VALUE_PROPS = [
 
 const PAYMENT_METHODS = [
   { Icon: IconBank, label: "Transferencia" },
-  { Icon: IconCash, label: "Efectivo" },
   { Icon: IconCard, label: "Tarjeta" },
 ];
 
@@ -464,7 +462,7 @@ export default function HomePage() {
               </h2>
             </header>
           </Reveal>
-          <div className="mx-auto mt-10 grid max-w-3xl grid-cols-3 gap-3 sm:gap-4">
+          <div className="mx-auto mt-10 grid max-w-2xl grid-cols-2 gap-3 sm:gap-4">
             {PAYMENT_METHODS.map(({ Icon, label }, i) => (
               <Reveal key={label} delay={i * 90}>
                 <div className="flex h-full flex-col items-center justify-center rounded-2xl border border-cream/15 bg-cream/[0.04] px-3 py-5 transition hover:border-cream/30 hover:bg-cream/[0.08] sm:px-6 sm:py-8">

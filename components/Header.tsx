@@ -13,6 +13,7 @@ const NAV = [
   { href: "/", label: "Inicio", base: "/" },
   { href: "/catalogo?cat=sillones", label: "Sillones", base: "/catalogo" },
   { href: "/catalogo?cat=mesas", label: "Mesas", base: "/catalogo" },
+  { href: "/catalogo?cat=sillas", label: "Sillas", base: "/catalogo" },
   { href: "/catalogo?cat=deco", label: "Deco", base: "/catalogo" },
   { href: "/catalogo?cat=camas", label: "Camas", base: "/catalogo" },
   { href: "/catalogo?cat=racks", label: "Racks", base: "/catalogo" },

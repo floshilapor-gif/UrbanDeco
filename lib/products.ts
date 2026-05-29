@@ -1,6 +1,7 @@
 export type CategorySlug =
   | "sillones"
   | "mesas"
+  | "sillas"
   | "deco"
   | "camas"
   | "racks"
@@ -54,8 +55,14 @@ export const CATEGORIES: Category[] = [
   {
     slug: "mesas",
     label: "Mesas",
-    tagline: "Comedores, sillas y auxiliares",
+    tagline: "Comedores y auxiliares",
     image: "/images/juego-comedor-toscana-castano.jpg",
+  },
+  {
+    slug: "sillas",
+    label: "Sillas",
+    tagline: "Sillas de comedor tapizadas",
+    image: "/images/silla-capitone-ambiente.jpg",
   },
   {
     slug: "deco",
@@ -380,7 +387,7 @@ export const PRODUCTS: Product[] = [
   {
     slug: "silla-capitone",
     name: "Silla Capitoné",
-    category: "mesas",
+    category: "sillas",
     price: 120000,
     image: "/images/silla-capitone-azul.jpg",
     fit: "cover",
@@ -405,7 +412,7 @@ export const PRODUCTS: Product[] = [
   {
     slug: "silla-bristol",
     name: "Silla Bristol",
-    category: "mesas",
+    category: "sillas",
     price: 180000,
     image: "/images/silla-bristol-lino.jpg",
     fit: "contain",
@@ -429,7 +436,7 @@ export const PRODUCTS: Product[] = [
   {
     slug: "silla-vega",
     name: "Silla Vega",
-    category: "mesas",
+    category: "sillas",
     price: 180000,
     image: "/images/silla-vega-lino.jpg",
     fit: "contain",

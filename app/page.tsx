@@ -4,6 +4,7 @@ import { ProductImage } from "@/components/ProductImage";
 import { ProductCard } from "@/components/ProductCard";
 import { Reveal } from "@/components/Reveal";
 import { StarField } from "@/components/StarField";
+import { Counter } from "@/components/Counter";
 import {
   IconArrowRight,
   IconTruck,
@@ -45,9 +46,9 @@ const PAYMENT_METHODS = [
 ];
 
 const STATS = [
-  { value: "+78.555", label: "Clientes satisfechos" },
-  { value: "+9.559", label: "Seguidores en Instagram" },
-  { value: "+3", label: "Años en el rubro" },
+  { value: 78555, label: "Clientes satisfechos" },
+  { value: 9559, label: "Seguidores en Instagram" },
+  { value: 3, label: "Años en el rubro" },
 ];
 
 const SHIPPING_FEATURES = [
@@ -227,7 +228,8 @@ export default function HomePage() {
           Nuevas colecciones urbanas
         </p>
         <h1 className="mt-5 max-w-4xl text-balance font-display text-[2.6rem] leading-[1.05] text-cream [text-shadow:0_2px_30px_rgba(20,18,15,0.35)] sm:text-6xl lg:text-7xl">
-          Sillones y decoración premium para tu hogar
+          Sillones y decoración premium para{" "}
+          <em className="font-normal italic">tu hogar</em>
         </h1>
         <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream/90 sm:text-xl">
           Descubre el arte de vivir con piezas de diseño que transforman cada
@@ -437,9 +439,11 @@ export default function HomePage() {
             {STATS.map((s, i) => (
               <Reveal key={s.label} delay={i * 110}>
                 <div className="text-center">
-                  <p className="font-display text-5xl text-cream sm:text-6xl">
-                    {s.value}
-                  </p>
+                  <Counter
+                    to={s.value}
+                    prefix="+"
+                    className="font-display text-5xl text-cream sm:text-6xl"
+                  />
                   <p className="mt-3 text-sm text-cream/75">{s.label}</p>
                 </div>
               </Reveal>

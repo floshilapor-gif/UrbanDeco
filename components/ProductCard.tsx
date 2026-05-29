@@ -12,19 +12,19 @@ export function ProductCard({
   priority?: boolean;
 }) {
   return (
-    <div className="group flex flex-col transition-transform duration-300 hover:-translate-y-1">
+    <div className="group flex flex-col transition-all duration-500 ease-out hover:-translate-y-1.5">
       <Link href={`/producto/${product.slug}`} className="block">
-        <div className="relative aspect-square overflow-hidden rounded-2xl bg-white ring-1 ring-line transition duration-300 group-hover:ring-clay">
+        <div className="relative aspect-square overflow-hidden rounded-2xl bg-white ring-1 ring-line transition-all duration-500 group-hover:shadow-[0_18px_38px_-22px_rgba(20,18,15,0.45)] group-hover:ring-clay">
           <ProductImage
             src={product.image}
             alt={product.name}
             priority={priority}
             imgClassName={`${
               product.fit === "cover" ? "object-cover" : "object-contain p-6"
-            } transition-transform duration-500 group-hover:scale-105`}
+            } transition-transform duration-700 ease-out group-hover:scale-[1.08]`}
           />
           {product.badge && (
-            <span className="absolute left-3 top-3 rounded-full bg-ink/90 px-3 py-1 text-[0.6rem] font-medium uppercase tracking-[0.16em] text-cream">
+            <span className="absolute left-3 top-3 rounded-full bg-ink/90 px-3 py-1 text-[0.6rem] font-medium uppercase tracking-[0.16em] text-cream shadow-md transition-all duration-300 group-hover:bg-clay group-hover:text-cream">
               {product.badge}
             </span>
           )}

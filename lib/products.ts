@@ -2,7 +2,6 @@ export type CategorySlug =
   | "sillones"
   | "mesas"
   | "sillas"
-  | "deco"
   | "camas"
   | "racks"
   | "jardin";
@@ -63,12 +62,6 @@ export const CATEGORIES: Category[] = [
     label: "Sillas",
     tagline: "Sillas de comedor tapizadas",
     image: "/images/silla-capitone-ambiente.jpg",
-  },
-  {
-    slug: "deco",
-    label: "Deco",
-    tagline: "Iluminación, textiles y accesorios",
-    image: "/images/deco-ambiente.jpg",
   },
   {
     slug: "camas",
@@ -671,58 +664,6 @@ export const PRODUCTS: Product[] = [
     features: ["Tapa metálica satinada", "Base ligera y estable", "Apilable junto al sofá"],
     dimensions: "Ø 45 × 55 cm",
     colors: ["Champán", "Grafito"],
-  },
-  {
-    slug: "lampara-pie-halo",
-    name: "Lámpara de Pie Halo",
-    category: "deco",
-    price: 240,
-    image: null,
-    short: "Lámpara de pie de luz cálida regulable y perfil esbelto.",
-    description:
-      "La Halo baña tu rincón de lectura con una luz cálida y regulable. Su perfil esbelto en metal mate y su difusor textil crean una atmósfera envolvente al caer la tarde.",
-    features: ["Luz cálida regulable", "Difusor textil", "Metal mate antihuellas"],
-    dimensions: "Altura 165 cm",
-    colors: ["Negro mate", "Latón"],
-  },
-  {
-    slug: "jarron-arena",
-    name: "Jarrón Arena",
-    category: "deco",
-    price: 58,
-    image: null,
-    short: "Jarrón de cerámica artesanal en acabado arena mate.",
-    description:
-      "Cerámica artesanal con un acabado arena mate que evoca la calma del Mediterráneo. Solo o en composición, aporta textura natural a cualquier estantería.",
-    features: ["Cerámica hecha a mano", "Acabado mate", "Pieza única"],
-    dimensions: "Altura 28 cm",
-    colors: ["Arena", "Hueso"],
-  },
-  {
-    slug: "espejo-redondo-sol",
-    name: "Espejo Redondo Sol",
-    category: "deco",
-    price: 150,
-    image: null,
-    short: "Espejo circular con marco fino que amplía la luz.",
-    description:
-      "Un círculo perfecto que multiplica la luz natural de tu hogar. Marco fino metálico y montaje sencillo para recibidores, baños o salones.",
-    features: ["Marco metálico fino", "Cristal de alta claridad", "Montaje incluido"],
-    dimensions: "Ø 70 cm",
-    colors: ["Negro", "Champán"],
-  },
-  {
-    slug: "manta-bruma",
-    name: "Manta de Lana Bruma",
-    category: "deco",
-    price: 72,
-    image: null,
-    short: "Manta de lana suave con flecos, tacto cálido y ligero.",
-    description:
-      "Esa capa final que invita a quedarse. Tejida en mezcla de lana suave con flecos artesanales, la manta Bruma viste tu sofá o tu cama con calidez y textura.",
-    features: ["Mezcla de lana suave", "Flecos artesanales", "Ligera y cálida"],
-    dimensions: "130 × 170 cm",
-    colors: ["Bruma", "Arena", "Antracita"],
   },
   {
     slug: "rack-oslo",

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
-import { IconWhatsApp } from "@/components/icons";
+import { IconWhatsApp, IconArrowRight, IconPin } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Contacto",
@@ -74,6 +74,47 @@ export default function ContactoPage() {
           </a>
         </aside>
       </div>
+
+      {/* Map */}
+      <section className="mt-16 lg:mt-24">
+        <header className="max-w-2xl">
+          <p className="eyebrow">Cómo llegar</p>
+          <h2 className="mt-3 font-display text-3xl sm:text-4xl">
+            Visitanos al showroom
+          </h2>
+          <p className="mt-3 flex items-center gap-2 text-stone">
+            <IconPin className="size-4 shrink-0 text-clay" />
+            Gelly y Obes 3446, San Miguel, Provincia de Buenos Aires
+          </p>
+        </header>
+
+        <div className="relative mt-6 aspect-[16/10] w-full overflow-hidden rounded-3xl ring-1 ring-line">
+          <iframe
+            title="Mapa del showroom Urban Deco"
+            src="https://www.google.com/maps?q=Gelly+y+Obes+3446,+San+Miguel,+Buenos+Aires&output=embed"
+            className="absolute inset-0 size-full"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
+
+        <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
+          <p className="text-sm text-stone">
+            Lunes a viernes de 09:00 a 17:00 hs ·{" "}
+            <span className="italic text-clay">Te esperamos ✨</span>
+          </p>
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=Gelly+y+Obes+3446,+San+Miguel,+Buenos+Aires"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-ink/30 px-6 py-3 text-xs font-medium uppercase tracking-[0.16em] text-ink transition hover:bg-ink hover:text-cream"
+          >
+            Cómo llegar <IconArrowRight className="size-4" />
+          </a>
+        </div>
+      </section>
     </div>
   );
 }

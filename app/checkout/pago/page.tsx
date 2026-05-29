@@ -20,14 +20,16 @@ const FREE_SHIPPING_THRESHOLD = 800;
 const SHIPPING_COST = 39;
 
 // ─────────────────────────────────────────────────────────────────────
-// DATOS BANCARIOS — REEMPLAZAR CON LOS TUYOS REALES
+// DATOS DE EJEMPLO — REEMPLAZAR ANTES DE ACEPTAR PAGOS REALES
+// Estos valores son placeholder. El formato es real (CBU 22 dígitos,
+// CUIT 11 dígitos) para que la UI se vea correcta mientras tanto.
 // ─────────────────────────────────────────────────────────────────────
 const BANK_INFO = {
   banco: "Banco Galicia",
-  titular: "Urban Deco",
-  cbu: "0070000000000000000000",
-  alias: "URBAN.DECO.AR",
-  cuit: "00-00000000-0",
+  titular: "Urban Deco S.A.",
+  cbu: "0070123420000012345678",
+  alias: "URBAN.DECO.HOGAR",
+  cuit: "30-71234567-8",
 };
 
 const SHOWROOM_INFO = {

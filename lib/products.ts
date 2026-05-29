@@ -95,7 +95,7 @@ export const PRODUCTS: Product[] = [
     slug: "sofa-mykonos",
     name: "Sofá Mykonos",
     category: "sillones",
-    price: 1890,
+    price: 800000,
     image: "/images/Mykonos.jpeg",
     short: "Sofá modular de tres plazas en bouclé gris con módulos acolchados.",
     description:
@@ -115,8 +115,7 @@ export const PRODUCTS: Product[] = [
     slug: "sofa-madrid",
     name: "Sofá Madrid",
     category: "sillones",
-    price: 2490,
-    compareAt: 2790,
+    price: 770000,
     image: "/images/sillonmadrid.jpeg",
     short: "Seccional modular en chenille gris con costuras geométricas.",
     description:
@@ -141,7 +140,7 @@ export const PRODUCTS: Product[] = [
     slug: "sillon-chester",
     name: "Sillón Chester",
     category: "sillones",
-    price: 890000,
+    price: 550000,
     image: "/images/sillonchester.jpeg",
     short: "Sofá Chesterfield capitoné blanco con apoyabrazos torneados.",
     description:
@@ -161,7 +160,7 @@ export const PRODUCTS: Product[] = [
     slug: "sillon-cama-lino",
     name: "Sillón Cama Lino",
     category: "sillones",
-    price: 650000,
+    price: 625000,
     image: "/images/silloncamalinooo.jpeg",
     short: "Sofá cama de 3 plazas en pana con cama oculta. Elegí el color.",
     description:
@@ -192,7 +191,7 @@ export const PRODUCTS: Product[] = [
     slug: "sillon-roma",
     name: "Sillón Roma",
     category: "sillones",
-    price: 920000,
+    price: 700000,
     image: "/images/sillonromaaa.jpeg",
     short: "Sofá de 3 plazas en velvet color borgoña con tacto suave.",
     description:
@@ -215,7 +214,7 @@ export const PRODUCTS: Product[] = [
     slug: "sillon-retractil-paris",
     name: "Sillón Retráctil París",
     category: "sillones",
-    price: 780000,
+    price: 900000,
     image: "/images/sillonretractilparisss.jpeg",
     short: "Sofá moderno con asiento retráctil que se transforma en chaise.",
     description:
@@ -238,7 +237,7 @@ export const PRODUCTS: Product[] = [
     slug: "sillon-ibiza",
     name: "Sillón Ibiza",
     category: "sillones",
-    price: 1890000,
+    price: 1450000,
     image: "/images/sillonibizaa.jpeg",
     short: "Seccional en L de grandes proporciones en tweed taupe.",
     description:
@@ -258,7 +257,7 @@ export const PRODUCTS: Product[] = [
     slug: "sillon-megan",
     name: "Sillón Megan",
     category: "sillones",
-    price: 1150000,
+    price: 650000,
     image: "/images/sillonmegan.jpeg",
     fit: "cover",
     short: "Sofá de líneas amplias y minimalistas en tweed oatmeal.",
@@ -284,7 +283,7 @@ export const PRODUCTS: Product[] = [
     slug: "sillon-moscu",
     name: "Sillón Moscú",
     category: "sillones",
-    price: 1450000,
+    price: 600000,
     image: "/images/sillonmoscu.jpeg",
     short: "Seccional con chaise en velvet antracita y patas metálicas.",
     description:
@@ -307,7 +306,7 @@ export const PRODUCTS: Product[] = [
     slug: "sofa-mykonos-2-plazas",
     name: "Sofá Mykonos 2 Plazas",
     category: "sillones",
-    price: 1290,
+    price: 700000,
     image: "/images/Mykonos.jpeg",
     short: "La versión compacta del Mykonos, ideal para espacios urbanos.",
     description:
@@ -325,7 +324,7 @@ export const PRODUCTS: Product[] = [
     slug: "sillon-monaco",
     name: "Sillón Mónaco",
     category: "sillones",
-    price: 890000,
+    price: 600000,
     image: "/images/sillon-monaco-3.jpg",
     fit: "cover",
     gallery: [
@@ -351,7 +350,7 @@ export const PRODUCTS: Product[] = [
     slug: "sillon-oslo",
     name: "Sillón Oslo",
     category: "sillones",
-    price: 1190000,
+    price: 450000,
     image: "/images/sillon-oslo.jpg",
     fit: "cover",
     gallery: [

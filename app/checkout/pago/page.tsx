@@ -274,9 +274,21 @@ export default function PaymentMethodPage() {
                       <span className="font-medium text-ink">
                         {formatPrice(total)}
                       </span>
-                      , confirmá tu pedido. Te vamos a contactar por WhatsApp
-                      para coordinar el envío en cuanto veamos el pago.
+                      , envianos el comprobante por WhatsApp para activar tu
+                      pedido. Te respondemos al instante.
                     </p>
+                    <a
+                      href={`https://wa.me/${SHOWROOM_INFO.telefono.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
+                        `Hola! Acabo de hacer la transferencia por ${formatPrice(total)} para mi pedido en Urban Deco. Adjunto el comprobante 📎`,
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="mt-4 inline-flex items-center gap-2 rounded-full bg-emerald-500 px-5 py-2.5 text-xs font-medium uppercase tracking-[0.14em] text-cream transition hover:bg-emerald-600"
+                    >
+                      <IconWhatsApp className="size-4" />
+                      Enviar comprobante por WhatsApp
+                    </a>
                   </div>
                 )}
 

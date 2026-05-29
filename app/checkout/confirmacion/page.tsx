@@ -64,7 +64,7 @@ function Confirmation() {
           <p className="mt-2 font-display text-lg">{METHOD_LABEL[metodo]}</p>
           <p className="mt-3 text-sm leading-relaxed text-stone">
             {metodo === "transferencia" &&
-              "Apenas veamos la transferencia (24–48 hs hábiles), te avisamos por WhatsApp y coordinamos el envío. Guardá el comprobante por las dudas."}
+              "Una vez que hagas la transferencia, mandanos el comprobante por WhatsApp y activamos tu pedido enseguida. Guardalo por las dudas."}
             {metodo === "efectivo" &&
               "Te esperamos en el showroom para coordinar el pago y la entrega. Si preferís retirar otro día, escribinos por WhatsApp."}
             {metodo === "tarjeta" &&
@@ -74,14 +74,27 @@ function Confirmation() {
       )}
 
       <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-        <a
-          href="https://wa.me/5491162624178"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-medium uppercase tracking-[0.16em] text-cream transition hover:bg-charcoal"
-        >
-          <IconWhatsApp className="size-4" /> Hablar por WhatsApp
-        </a>
+        {metodo === "transferencia" ? (
+          <a
+            href={`https://wa.me/5491162624178?text=${encodeURIComponent(
+              `Hola! Ya realicé la transferencia para mi pedido ${order ?? ""} en Urban Deco. Adjunto el comprobante 📎`,
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-7 py-3.5 text-sm font-medium uppercase tracking-[0.16em] text-cream shadow-md transition hover:bg-emerald-600"
+          >
+            <IconWhatsApp className="size-4" /> Enviar comprobante por WhatsApp
+          </a>
+        ) : (
+          <a
+            href="https://wa.me/5491162624178"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-medium uppercase tracking-[0.16em] text-cream transition hover:bg-charcoal"
+          >
+            <IconWhatsApp className="size-4" /> Hablar por WhatsApp
+          </a>
+        )}
         <Link
           href="/catalogo"
           className="inline-flex items-center gap-2 rounded-full border border-ink/30 px-7 py-3.5 text-sm font-medium uppercase tracking-[0.16em] text-ink transition hover:border-ink"

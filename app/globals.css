@@ -71,7 +71,17 @@
   18%, 100% { opacity: 0; transform: translate(340px, 124px) rotate(20deg); }
 }
 
+/* Page transition (fade-in on each navigation via template.tsx) */
+@keyframes ud-page-fade {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.ud-page-fade {
+  animation: ud-page-fade 380ms ease-out both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .ud-dot { animation: none !important; }
   .ud-shoot-el { display: none !important; }
+  .ud-page-fade { animation: none !important; }
 }

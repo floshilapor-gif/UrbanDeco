@@ -6,6 +6,22 @@ import { Reveal } from "@/components/Reveal";
 import { StarField } from "@/components/StarField";
 import { Counter } from "@/components/Counter";
 import { Newsletter } from "@/components/Newsletter";
+import { HeroSlideshow } from "@/components/HeroSlideshow";
+
+const HERO_SLIDES = [
+  {
+    src: "/images/hero-salon.jpg",
+    alt: "Salón decorado con sofá Chesterfield, butacas y lámpara de pie",
+  },
+  {
+    src: "/images/coleccion-sillones.jpg",
+    alt: "Living moderno con sectional gris y mesa ratona de madera",
+  },
+  {
+    src: "/images/sillon-monaco-3.jpg",
+    alt: "Living cálido con sillón Mónaco en terracota",
+  },
+];
 import {
   IconArrowRight,
   IconTruck,
@@ -213,14 +229,7 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section className="relative isolate -mt-[74px] flex min-h-[86vh] flex-col items-center justify-center overflow-hidden px-5 pb-24 pt-28 text-center sm:px-8">
-        <Image
-          src="/images/hero-salon.jpg"
-          alt="Salón decorado con sofá Chesterfield, butacas y lámpara de pie"
-          fill
-          priority
-          sizes="100vw"
-          className="-z-20 object-cover object-center"
-        />
+        <HeroSlideshow slides={HERO_SLIDES} className="-z-20" />
         <div className="absolute inset-0 -z-10 bg-ink/35" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-ink/30 via-ink/30 to-ink/55" />
         <StarField className="-z-10" />

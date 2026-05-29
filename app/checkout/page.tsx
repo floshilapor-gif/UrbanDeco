@@ -10,6 +10,7 @@ import { formatPrice, formatInstallment, INSTALLMENTS } from "@/lib/format";
 
 const FREE_SHIPPING_THRESHOLD = 800;
 const SHIPPING_COST = 39;
+export const CHECKOUT_CUSTOMER_KEY = "ud_checkout_customer";
 
 const inputClass =
   "w-full rounded-xl border border-line bg-linen px-4 py-3 text-sm text-ink outline-none transition placeholder:text-mist focus:border-taupe focus:ring-2 focus:ring-taupe/20";
@@ -17,7 +18,7 @@ const labelClass =
   "text-xs font-medium uppercase tracking-[0.14em] text-stone";
 
 export default function CheckoutPage() {
-  const { lines, subtotal, hydrated, clear } = useCart();
+  const { lines, subtotal, hydrated } = useCart();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -41,46 +42,17 @@ export default function CheckoutPage() {
       setForm((f) => ({ ...f, [field]: e.target.value }));
   }
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError(null);
     setLoading(true);
     try {
-      const res = await fetch("/api/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          items: lines.map((l) => ({
-            slug: l.slug,
-            qty: l.qty,
-            variant: l.variant,
-          })),
-          customer: form,
-        }),
-      });
-      const data = await res.json();
-
-      if (!res.ok) {
-        setError(data.error ?? "Algo salió mal. Inténtalo de nuevo.");
-        setLoading(false);
-        return;
-      }
-
-      if (data.url) {
-        window.location.href = data.url; // Stripe Checkout
-        return;
-      }
-
-      if (data.demo) {
-        clear();
-        router.push(`/checkout/confirmacion?order=${data.orderId}`);
-        return;
-      }
-
-      setError("Respuesta inesperada del servidor.");
-      setLoading(false);
+      // Stash the customer data so the /pago step can read it without
+      // refilling the form. Cart lines stay in the CartProvider context.
+      sessionStorage.setItem(CHECKOUT_CUSTOMER_KEY, JSON.stringify(form));
+      router.push("/checkout/pago");
     } catch {
-      setError("No se pudo conectar. Revisa tu conexión.");
+      setError("No se pudo guardar tu información. Inténtalo de nuevo.");
       setLoading(false);
     }
   }
@@ -218,12 +190,16 @@ export default function CheckoutPage() {
               disabled={loading}
               className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-ink px-6 py-4 text-sm font-medium uppercase tracking-[0.16em] text-cream transition hover:bg-charcoal disabled:cursor-not-allowed disabled:opacity-60"
             >
-              {loading ? "Procesando…" : `Pagar ${formatPrice(total)}`}
+              {loading ? "Procesando…" : (
+                <>
+                  Elegir método de pago <IconArrowRight className="size-4" />
+                </>
+              )}
             </button>
 
             <p className="mt-3 flex items-center justify-center gap-1.5 text-xs text-mist">
               <IconShield className="size-4" />
-              Pago seguro y cifrado
+              Tus datos están protegidos
             </p>
           </div>
         </aside>

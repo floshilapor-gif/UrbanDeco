@@ -4,11 +4,25 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect } from "react";
 import { useCart } from "@/components/CartProvider";
-import { IconCheck, IconArrowRight } from "@/components/icons";
+import {
+  IconCheck,
+  IconArrowRight,
+  IconWhatsApp,
+  IconBank,
+  IconCash,
+  IconCard,
+} from "@/components/icons";
+
+const METHOD_LABEL: Record<string, string> = {
+  transferencia: "Transferencia bancaria",
+  efectivo: "Pago en efectivo en showroom",
+  tarjeta: "Tarjeta de crédito/débito",
+};
 
 function Confirmation() {
   const params = useSearchParams();
   const order = params.get("order");
+  const metodo = params.get("metodo");
   const { clear } = useCart();
 
   useEffect(() => {
@@ -16,7 +30,7 @@ function Confirmation() {
   }, [order, params, clear]);
 
   return (
-    <div className="mx-auto w-full max-w-2xl px-5 py-20 text-center sm:px-8 lg:py-28">
+    <div className="mx-auto w-full max-w-2xl px-5 py-20 text-center sm:px-8 lg:py-24">
       <span className="mx-auto grid size-16 place-items-center rounded-full bg-ink text-cream">
         <IconCheck className="size-8" />
       </span>
@@ -24,8 +38,8 @@ function Confirmation() {
         ¡Pedido confirmado!
       </h1>
       <p className="mt-4 text-lg leading-relaxed text-stone">
-        Gracias por confiar en Urban Deco. Hemos recibido tu pedido y te
-        enviaremos un email con todos los detalles y el seguimiento del envío.
+        Gracias por confiar en Urban Deco. Recibimos tu pedido y te vamos a
+        contactar por WhatsApp para coordinar todos los detalles.
       </p>
 
       {order && (
@@ -39,20 +53,49 @@ function Confirmation() {
         </div>
       )}
 
+      {metodo && METHOD_LABEL[metodo] && (
+        <div className="mx-auto mt-6 max-w-md rounded-2xl border border-line bg-cream p-5 text-left">
+          <p className="flex items-center gap-2 text-xs font-medium uppercase tracking-[0.16em] text-stone">
+            {metodo === "transferencia" && <IconBank className="size-4" />}
+            {metodo === "efectivo" && <IconCash className="size-4" />}
+            {metodo === "tarjeta" && <IconCard className="size-4" />}
+            Método de pago elegido
+          </p>
+          <p className="mt-2 font-display text-lg">{METHOD_LABEL[metodo]}</p>
+          <p className="mt-3 text-sm leading-relaxed text-stone">
+            {metodo === "transferencia" &&
+              "Apenas veamos la transferencia (24–48 hs hábiles), te avisamos por WhatsApp y coordinamos el envío. Guardá el comprobante por las dudas."}
+            {metodo === "efectivo" &&
+              "Te esperamos en el showroom para coordinar el pago y la entrega. Si preferís retirar otro día, escribinos por WhatsApp."}
+            {metodo === "tarjeta" &&
+              "En las próximas horas vas a recibir por WhatsApp un link de pago seguro para completar la compra con tu tarjeta."}
+          </p>
+        </div>
+      )}
+
       <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+        <a
+          href="https://wa.me/5491162624178"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-medium uppercase tracking-[0.16em] text-cream transition hover:bg-charcoal"
+        >
+          <IconWhatsApp className="size-4" /> Hablar por WhatsApp
+        </a>
         <Link
           href="/catalogo"
-          className="inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-medium uppercase tracking-[0.16em] text-cream transition hover:bg-charcoal"
+          className="inline-flex items-center gap-2 rounded-full border border-ink/30 px-7 py-3.5 text-sm font-medium uppercase tracking-[0.16em] text-ink transition hover:border-ink"
         >
           Seguir comprando <IconArrowRight className="size-4" />
         </Link>
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 rounded-full border border-ink/30 px-7 py-3.5 text-sm font-medium uppercase tracking-[0.16em] text-ink transition hover:border-ink"
-        >
-          Volver al inicio
-        </Link>
       </div>
+
+      <Link
+        href="/"
+        className="mt-8 inline-block text-sm font-medium uppercase tracking-[0.14em] text-stone transition hover:text-ink"
+      >
+        ← Volver al inicio
+      </Link>
     </div>
   );
 }

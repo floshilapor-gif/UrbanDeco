@@ -558,7 +558,7 @@ export const PRODUCTS: Product[] = [
     slug: "silla-capitone",
     name: "Silla Capitoné",
     category: "sillas",
-    price: 120000,
+    price: 135000,
     image: "/images/silla-capitone-azul.jpg",
     fit: "cover",
     short:
@@ -583,7 +583,7 @@ export const PRODUCTS: Product[] = [
     slug: "silla-bristol",
     name: "Silla Bristol",
     category: "sillas",
-    price: 180000,
+    price: 190000,
     image: "/images/silla-bristol-lino.jpg",
     fit: "contain",
     short:
@@ -607,7 +607,7 @@ export const PRODUCTS: Product[] = [
     slug: "silla-vega",
     name: "Silla Vega",
     category: "sillas",
-    price: 180000,
+    price: 120000,
     image: "/images/silla-vega-lino.jpg",
     fit: "contain",
     short:

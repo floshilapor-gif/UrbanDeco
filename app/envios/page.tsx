@@ -36,8 +36,15 @@ export default function EnviosPage() {
 
       <InfoSection title="Retiro en showroom">
         <p>
-          Si preferís, podés retirar tu pedido sin cargo coordinando día y
-          horario con nosotros.
+          Si preferís, podés retirar tu pedido sin cargo en nuestro showroom de{" "}
+          <strong className="text-ink">
+            Gelly y Obes 3446, San Miguel, Provincia de Buenos Aires
+          </strong>
+          .
+        </p>
+        <p>
+          <strong className="text-ink">Horario de atención:</strong> lunes a
+          viernes de 09:00 a 17:00 hs. Te esperamos ✨
         </p>
       </InfoSection>
 

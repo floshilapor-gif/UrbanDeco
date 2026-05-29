@@ -33,9 +33,10 @@ const BANK_INFO = {
 };
 
 const SHOWROOM_INFO = {
-  direccion: "Av. Corrientes 1234, CABA",
-  horarios: "Lunes a Sábado de 10 a 20 hs",
+  direccion: "Gelly y Obes 3446, San Miguel, Provincia de Buenos Aires",
+  horarios: "Lunes a viernes de 09:00 a 17:00 hs",
   telefono: "+54 9 11 6262-4178",
+  cierre: "Te esperamos ✨",
 };
 
 type Method = "transferencia" | "efectivo" | "tarjeta";
@@ -298,6 +299,9 @@ export default function PaymentMethodPage() {
                         </dd>
                       </div>
                     </dl>
+                    <p className="mt-3 text-sm italic text-clay">
+                      {SHOWROOM_INFO.cierre}
+                    </p>
                     <a
                       href={`https://wa.me/${SHOWROOM_INFO.telefono.replace(/[^0-9]/g, "")}?text=${encodeURIComponent("Hola, quiero coordinar el pago en efectivo de mi pedido en Urban Deco.")}`}
                       target="_blank"

@@ -21,7 +21,7 @@ const FAQ_GROUPS = [
       },
       {
         q: "¿Puedo retirar por el showroom?",
-        a: "Sí, podés retirar sin cargo coordinando día y horario por WhatsApp.",
+        a: "Sí, podés retirar sin cargo en nuestro showroom de Gelly y Obes 3446, San Miguel (Provincia de Buenos Aires). Coordiná día y horario por WhatsApp. ¡Te esperamos ✨!",
       },
       {
         q: "¿Hacen seguimiento del envío?",
@@ -97,7 +97,7 @@ const FAQ_GROUPS = [
       },
       {
         q: "¿Tienen horario de atención?",
-        a: "Lunes a sábados, de 10:00 a 20:00 hs. Por WhatsApp te respondemos lo antes posible.",
+        a: "Lunes a viernes de 09:00 a 17:00 hs en el showroom (Gelly y Obes 3446, San Miguel, Bs. As.). Por WhatsApp te respondemos lo antes posible.",
       },
     ],
   },

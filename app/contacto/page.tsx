@@ -12,7 +12,12 @@ const INFO = [
   { label: "WhatsApp", value: "+54 9 11 6262-4178" },
   { label: "Instagram", value: "@urbandeco_" },
   { label: "Email", value: "hola@urbandeco.com" },
-  { label: "Horario", value: "Lun a Sáb · 10:00 - 20:00" },
+  { label: "Horario", value: "Lun a Vie · 09:00 - 17:00" },
+  {
+    label: "Showroom",
+    value: "Gelly y Obes 3446, San Miguel, Bs. As.",
+    full: true,
+  },
 ];
 
 export default function ContactoPage() {
@@ -33,7 +38,7 @@ export default function ContactoPage() {
         <aside className="flex flex-col gap-8">
           <div className="grid grid-cols-2 gap-6">
             {INFO.map((item) => (
-              <div key={item.label}>
+              <div key={item.label} className={item.full ? "col-span-2" : ""}>
                 <p className="text-xs font-medium uppercase tracking-[0.16em] text-taupe">
                   {item.label}
                 </p>
@@ -41,6 +46,7 @@ export default function ContactoPage() {
               </div>
             ))}
           </div>
+          <p className="-mt-2 text-sm italic text-clay">Te esperamos ✨</p>
 
           <a
             href="https://wa.me/5491162624178"
